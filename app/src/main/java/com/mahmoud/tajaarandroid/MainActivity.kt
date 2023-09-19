@@ -8,24 +8,27 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
+import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingViewModel
 import com.mahmoud.tajaarandroid.presentation.splash.SplashScreen
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_1
 import com.mahmoud.tajaarandroid.presentation.util.Route.SPLASH
 import com.mahmoud.tajaarandroid.ui.theme.TajAarAndroidTheme
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val viewModel = hiltViewModel<OnBoardingViewModel>()
             val navController = rememberNavController()
             TajAarAndroidTheme {
                 Scaffold(
@@ -42,7 +45,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(ONBOARDING_STEP_1) {
                             Box(modifier = Modifier.fillMaxSize()) {
-                                OnBoardingStepOne()
+                                OnBoardingStepOne(
+                                    currentStep = viewModel.currentStep
+                                )
                             }
                         }
                     }

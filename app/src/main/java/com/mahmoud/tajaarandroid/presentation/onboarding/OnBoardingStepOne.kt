@@ -21,11 +21,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
+import com.mahmoud.tajaarandroid.presentation.onboarding.components.StepIndicator
 
 
 @Composable
 fun OnBoardingStepOne(
-    modifier : Modifier = Modifier
+    modifier : Modifier = Modifier,
+    currentStep : Int
 ) {
     Box(
         modifier = modifier
@@ -58,9 +60,7 @@ fun OnBoardingStepOne(
             Button(onClick = { /*TODO*/ }) {
                 Text(text = "Next")
             }
-            Button(onClick = { /*TODO*/ }) {
-                Text(text = "Next")
-            }
+            StepIndicator(currentStep)
         }
     }
  }

@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun OnBoardingStepThree(
-    modifier : Modifier = Modifier
+    modifier : Modifier = Modifier,
 ) {
 
 }
