@@ -12,22 +12,27 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Call
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import com.mahmoud.tajaarandroid.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CustomTextField(value: TextFieldValue, onValueChange: (TextFieldValue) -> Unit) {
+fun CustomTextField(
+    modifier: Modifier = Modifier,
+    value: TextFieldValue,
+    onValueChange: (TextFieldValue) -> Unit,
+    placeHolderText : String,
+    resourceId : Int
+) {
     OutlinedTextField(
-        modifier = Modifier
+        modifier = modifier
             .width(327.dp)
             .height(59.dp)
             .background(Color(0xFFF9F9F9), RoundedCornerShape(14.dp))
@@ -37,9 +42,24 @@ fun CustomTextField(value: TextFieldValue, onValueChange: (TextFieldValue) -> Un
         onValueChange = onValueChange,
         textStyle = TextStyle(color = Color.Black, fontSize = 16.sp),
         maxLines = 1,
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            focusedBorderColor = Color.Transparent,
+            unfocusedBorderColor = Color.Transparent
+        ),
         singleLine = true,
         leadingIcon = {
-            Icon(painter = painterResource(id = R.drawable.ellipse3), contentDescription = "Email Icon")
+            Icon(
+                painter = painterResource(
+                    id = resourceId
+                ),
+                contentDescription = placeHolderText,
+                tint = MaterialTheme.colorScheme.onPrimary
+            )
+        },
+        placeholder = {
+            Text(
+                text = placeHolderText
+            )
         }
     )
 }

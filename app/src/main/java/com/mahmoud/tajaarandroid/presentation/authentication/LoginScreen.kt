@@ -66,10 +66,22 @@ fun LoginScreen(
             fontSize = 13.sp,
         )
         CustomTextField(
+            modifier = Modifier.padding(top = 38.dp),
             value = dummyText,
             onValueChange =  {
                 dummyText = it
-            }
+            },
+            resourceId = R.drawable.sms,
+            placeHolderText = "Email"
+        )
+        CustomTextField(
+            modifier = Modifier.padding(top = 8.dp),
+            value = dummyText,
+            onValueChange =  {
+                dummyText = it
+            },
+            resourceId = R.drawable.lock,
+            placeHolderText = "Email"
         )
     }
 }
