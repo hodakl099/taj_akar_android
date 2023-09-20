@@ -14,9 +14,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
+import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
+import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingViewModel
 import com.mahmoud.tajaarandroid.presentation.splash.SplashScreen
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_1
+import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_2
+import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_3
 import com.mahmoud.tajaarandroid.presentation.util.Route.SPLASH
 import com.mahmoud.tajaarandroid.ui.theme.TajAarAndroidTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,11 +48,28 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(ONBOARDING_STEP_1) {
-                            Box(modifier = Modifier.fillMaxSize()) {
                                 OnBoardingStepOne(
-                                    currentStep = viewModel.currentStep
+                                    onNavigate = {
+                                        viewModel.nextStep()
+                                        navController.navigate(ONBOARDING_STEP_2)
+                                    },
+                                    viewModel = viewModel
                                 )
-                            }
+                        }
+                        composable(ONBOARDING_STEP_2) {
+                            OnBoardingStepTwo(
+                                viewModel = viewModel,
+                                onNavigate = {
+                                    viewModel.nextStep()
+                                    navController.navigate(ONBOARDING_STEP_3)
+                                }
+                            )
+                        }
+                        composable(ONBOARDING_STEP_3) {
+                            OnBoardingStepThree(
+                                viewModel = viewModel,
+                                onNavigate = {}
+                            )
                         }
                     }
 

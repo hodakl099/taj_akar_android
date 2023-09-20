@@ -1,6 +1,7 @@
 package com.mahmoud.tajaarandroid.presentation.onboarding
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,16 +29,19 @@ import com.mahmoud.tajaarandroid.presentation.onboarding.components.StepIndicato
 @Composable
 fun OnBoardingStepOne(
     modifier : Modifier = Modifier,
-    currentStep : Int
+    onNavigate : () -> Unit,
+    viewModel : OnBoardingViewModel
 ) {
+    viewModel.onStepChange(0)
     Box(
         modifier = modifier
             .fillMaxSize()
             .padding(top = 42.dp, end = 16.dp)
     ) {
         Text(
-            modifier = Modifier.align(Alignment.TopEnd),
-            text = "Skip"
+            modifier = Modifier.align(Alignment.TopEnd).clickable { onNavigate() },
+            text = "Skip",
+            color = MaterialTheme.colorScheme.onPrimary
         )
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -57,10 +62,17 @@ fun OnBoardingStepOne(
                     textAlign = TextAlign.Center
                 )
             )
-            Button(onClick = { /*TODO*/ }) {
-                Text(text = "Next")
+            Button(
+                onClick = onNavigate,
+            ) {
+                Text(
+                    color = MaterialTheme.colorScheme.onSecondary,
+                    text = "Next"
+                )
             }
-            StepIndicator(currentStep)
+            StepIndicator(
+                viewModel.currentStep
+            )
         }
     }
  }
