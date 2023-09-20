@@ -18,11 +18,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import com.mahmoud.tajaarandroid.presentation.authentication.GetStartedScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingViewModel
 import com.mahmoud.tajaarandroid.presentation.splash.SplashScreen
+import com.mahmoud.tajaarandroid.presentation.util.Route.GET_STARTED
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_1
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_2
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_3
@@ -43,7 +45,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                 ) { innerPadding ->
-                    NavHost(navController = navController, startDestination = SPLASH ) {
+                    NavHost(navController = navController, startDestination = GET_STARTED ) {
                         composable(
                             SPLASH,
                             enterTransition = {
@@ -135,6 +137,11 @@ class MainActivity : ComponentActivity() {
                                 viewModel = viewModel,
                                 onNavigate = {}
                             )
+                        }
+                        composable(
+                            route = GET_STARTED,
+                        ) {
+                            GetStartedScreen()
                         }
                     }
 
