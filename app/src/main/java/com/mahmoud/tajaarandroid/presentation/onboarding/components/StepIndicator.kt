@@ -1,6 +1,6 @@
 package com.mahmoud.tajaarandroid.presentation.onboarding.components
 
-import android.widget.Space
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.mahmoud.tajaarandroid.ui.theme.ValentineRed
 
 @Composable
 fun StepIndicator(currentStep : Int) {
@@ -30,7 +31,7 @@ fun StepIndicator(currentStep : Int) {
                     .width(if (i == currentStep) 20.dp else 4.dp)
                     .height(4.dp)
                     .background(
-                        if (i  == currentStep) Color.Blue else Color.Gray,
+                        if (i  == currentStep) ValentineRed else ValentineRed.copy(0.3f),
                         shape = CircleShape
                     )
             )

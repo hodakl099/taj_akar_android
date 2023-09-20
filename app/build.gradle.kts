@@ -76,5 +76,7 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
 
+    kapt("androidx.compose.animation:animation:1.5.1")
+
     implementation("androidx.navigation:navigation-compose:$navVersion")
 }
