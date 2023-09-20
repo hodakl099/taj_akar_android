@@ -27,6 +27,7 @@ fun StepIndicator(currentStep : Int) {
             Box(
                 modifier = Modifier
                     .size(12.dp)
+                    .width(100.dp)
                     .background(
                         if (i  == currentStep) Color.Blue else Color.Gray,
                         shape = CircleShape
