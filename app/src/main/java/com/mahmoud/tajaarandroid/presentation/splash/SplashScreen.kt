@@ -17,13 +17,14 @@ fun SplashScreen(
     onNavigate : () -> Unit
 ) {
     LaunchedEffect(key1 = true) {
-        delay(3000)
+        delay(2000)
         onNavigate()
     }
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             modifier = Modifier.fillMaxSize(),
             painter = painterResource(id = R.drawable.splash),
-            contentDescription = null)
+            contentDescription = null
+        )
     }
 }

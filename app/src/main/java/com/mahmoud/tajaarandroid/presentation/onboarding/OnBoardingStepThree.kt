@@ -6,9 +6,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -48,7 +52,7 @@ fun OnBoardingStepThree(
         ) {
             Image(
                 modifier = Modifier.size(275.dp),
-                painter = painterResource(id = R.drawable.ellipse2),
+                painter = painterResource(id = R.drawable.ellipse3),
                 contentDescription = null,
             )
             Text(
@@ -60,7 +64,16 @@ fun OnBoardingStepThree(
                     textAlign = TextAlign.Center
                 )
             )
-            Button(onClick = onNavigate) {
+            Button(
+                modifier = Modifier
+                    .width(193.dp)
+                    .height(54.dp),
+                onClick = onNavigate,
+                shape = RoundedCornerShape(14.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.onPrimary
+                )
+            ) {
                 Text(
                     text = "Next",
                     color = MaterialTheme.colorScheme.onSecondary
