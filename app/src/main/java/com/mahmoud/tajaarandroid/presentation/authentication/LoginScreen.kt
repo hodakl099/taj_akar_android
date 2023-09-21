@@ -81,7 +81,8 @@ fun LoginScreen(
                 dummyText = it
             },
             resourceId = R.drawable.lock,
-            placeHolderText = "Email"
+            placeHolderText = "Password",
+            isPassword = true
         )
     }
 }
