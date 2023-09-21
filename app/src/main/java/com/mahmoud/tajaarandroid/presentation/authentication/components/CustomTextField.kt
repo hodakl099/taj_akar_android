@@ -7,7 +7,6 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -70,14 +69,16 @@ fun CustomTextField(
         trailingIcon = {
             if(isPassword)
             Text(
-                modifier = Modifier.padding(end = 24.dp),
+                modifier = Modifier.padding(
+                    end = 24.dp,
+                    start = 16.dp
+                ),
                 text = "Forgot?",
                 fontWeight = FontWeight.Bold,
                 fontSize = 10.sp,
                 color = Color.Red
             )
         },
-
     )
 }
 

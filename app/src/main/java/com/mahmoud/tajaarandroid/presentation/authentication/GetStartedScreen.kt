@@ -77,7 +77,10 @@ fun GetStartedScreen(
                 color = MaterialTheme.colorScheme.onSecondary
             )
         }
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(
+            modifier = Modifier
+                .height(8.dp)
+        )
         Button(
             modifier = Modifier
                 .width(327.dp)
