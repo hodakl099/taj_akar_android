@@ -20,6 +20,7 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.mahmoud.tajaarandroid.presentation.authentication.GetStartedScreen
 import com.mahmoud.tajaarandroid.presentation.authentication.LoginScreen
+import com.mahmoud.tajaarandroid.presentation.authentication.SignupScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
@@ -142,7 +143,7 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = GET_STARTED,
                         ) {
-                            LoginScreen()
+                            SignupScreen()
                         }
                     }
 
