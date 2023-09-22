@@ -18,19 +18,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun PaymentButton(
-    resId : Int,
-    buttonText : String
+fun ActionButton(
+    modifier: Modifier = Modifier,
+    textButton : String,
+    containerColor : Color,
+    textColor : Color
 ) {
     Button(
-        modifier = Modifier
+        modifier = modifier
             .border(
                 width = 1.dp,
                 color = Color.Black.copy(0.1f),
@@ -40,29 +41,15 @@ fun PaymentButton(
             .height(54.dp),
         onClick = { /*TODO*/ },
         colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.onSecondary
+            containerColor = containerColor
         ),
         shape = RoundedCornerShape(14.dp)
     ) {
-        Row(
-             modifier = Modifier.fillMaxWidth()
-                 .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                painter = painterResource(id = resId),
-                contentDescription = buttonText,
-                tint = Color.Unspecified
-            )
-            Spacer(modifier = Modifier.width(14.dp))
             Text(
-                text = buttonText,
+                text = textButton,
                 fontSize = 14.sp,
-                color = Color.Black.copy(0.6f),
+                color = textColor,
                 fontWeight = FontWeight.W400
             )
-        }
-
     }
 }
