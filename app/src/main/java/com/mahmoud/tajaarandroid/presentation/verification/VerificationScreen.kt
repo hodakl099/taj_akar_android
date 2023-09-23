@@ -51,16 +51,15 @@ import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.authentication.components.ActionButton
 import com.mahmoud.tajaarandroid.presentation.authentication.components.CustomTextField
+import com.mahmoud.tajaarandroid.presentation.verification.components.VerificationInputFiled
 
 @Composable
 fun VerificationScreen(
     modifier : Modifier = Modifier
 ) {
 
-    var dummyText by remember {
-        mutableStateOf(TextFieldValue(""))
-    }
-
+    val focusRequesters = List(4) { FocusRequester() }
+    val textFields = remember { mutableStateListOf("", "", "", "") }
         Column(
             modifier = modifier
                 .fillMaxSize()
@@ -121,54 +120,10 @@ fun VerificationScreen(
                 fontWeight = FontWeight.W400,
                 color = Color.Black.copy(0.8f)
             )
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(16.dp), // Adjust the spacing between TextFields as needed
-                modifier = Modifier
-                    .padding(16.dp)
-                    .fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                val focusRequesters = List(4) { FocusRequester() }
-                val textFields = remember { mutableStateListOf("", "", "", "") }
-
-                val isFocused = remember { mutableStateOf(false) }
-
-                textFields.forEachIndexed { index, text ->
-                    Box (
-                        modifier = Modifier
-                            .size(67.dp)
-                            .clip(RoundedCornerShape(14.dp))
-                            .background(Color.Gray.copy(alpha = 0.1f))
-                    ){
-                        BasicTextField(
-                            value = text,
-                            onValueChange = {
-                                if (it.length <= 1) {
-                                    textFields[index] = it
-                                    if (it.isNotEmpty() && index < 3) focusRequesters[index + 1].requestFocus()
-                                }
-                            },
-                            keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
-                            textStyle = TextStyle(
-                                textAlign = TextAlign.Center,
-                                fontSize = 20.sp,
-                                color = Color.Black
-                            ),
-                            modifier = Modifier
-                                .align(Alignment.Center)
-                                .focusRequester(focusRequesters[index])
-                                .onFocusChanged { state ->
-                                    isFocused.value = state.isFocused
-                                }
-                        )
-                    }
-                    LaunchedEffect(isFocused.value) {
-                        if (isFocused.value && textFields[index].isNotEmpty() && index < 3) {
-                            focusRequesters[index + 1].requestFocus()
-                        }
-                    }
-                }
-            }
+            VerificationInputFiled(
+              focusRequesters = focusRequesters,
+                textFields = textFields
+            )
             Spacer(modifier = Modifier.height(32.dp))
             ActionButton(
                 modifier = Modifier
