@@ -16,13 +16,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
-import com.mahmoud.tajaarandroid.presentation.authentication.GetStartedScreen
-import com.mahmoud.tajaarandroid.presentation.authentication.LoginScreen
-import com.mahmoud.tajaarandroid.presentation.authentication.PaymentMethodScreen
-import com.mahmoud.tajaarandroid.presentation.authentication.SignupScreen
-import com.mahmoud.tajaarandroid.presentation.forgotpassword.ForgotPasswordScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
