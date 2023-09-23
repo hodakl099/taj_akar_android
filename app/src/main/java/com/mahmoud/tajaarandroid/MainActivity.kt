@@ -22,6 +22,7 @@ import com.mahmoud.tajaarandroid.presentation.authentication.GetStartedScreen
 import com.mahmoud.tajaarandroid.presentation.authentication.LoginScreen
 import com.mahmoud.tajaarandroid.presentation.authentication.PaymentMethodScreen
 import com.mahmoud.tajaarandroid.presentation.authentication.SignupScreen
+import com.mahmoud.tajaarandroid.presentation.forgotpassword.ForgotPasswordScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
@@ -32,6 +33,7 @@ import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_1
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_2
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_3
 import com.mahmoud.tajaarandroid.presentation.util.Route.SPLASH
+import com.mahmoud.tajaarandroid.presentation.verification.VerificationScreen
 import com.mahmoud.tajaarandroid.ui.theme.TajAarAndroidTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -144,7 +146,7 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = GET_STARTED,
                         ) {
-                            PaymentMethodScreen()
+                            VerificationScreen()
                         }
                     }
 
