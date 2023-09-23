@@ -16,6 +16,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.mahmoud.tajaarandroid.presentation.home.HomeScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
@@ -139,7 +140,7 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = GET_STARTED,
                         ) {
-                            VerificationScreen()
+                            HomeScreen()
                         }
                     }
 
