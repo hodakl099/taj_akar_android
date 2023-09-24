@@ -3,6 +3,7 @@ package com.mahmoud.tajaarandroid.presentation.home.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -42,6 +43,7 @@ fun Category(
             contentDescription = null,
             tint = Color.Unspecified
         )
+        Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = categoryName,
             style = TextStyle(
