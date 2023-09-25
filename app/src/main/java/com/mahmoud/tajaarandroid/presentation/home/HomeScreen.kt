@@ -1,6 +1,5 @@
 package com.mahmoud.tajaarandroid.presentation.home
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -26,13 +25,63 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.home.components.Category
+import com.mahmoud.tajaarandroid.presentation.home.components.CategoryData
 import com.mahmoud.tajaarandroid.presentation.home.components.HomeHeader
 
-@OptIn(ExperimentalFoundationApi::class)
+
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
 ) {
+
+
+    //TODO() this is a dummy data, this will be fetched from a web server.
+    val categories = listOf(
+        CategoryData(
+            name =  "Alkwateb resort bir alalim.",
+            type = "Resort",
+            location = "Tajura, Tripoli",
+            price = 2455.33
+        ),
+                CategoryData(
+                name =  "Alkwateb resort bir alalim.",
+        type = "Resort",
+        location = "Tajura, Tripoli",
+        price = 2455.33
+    ),
+    CategoryData(
+        name =  "Alkwateb resort bir alalim.",
+        type = "Resort",
+        location = "Tajura, Tripoli",
+        price = 2455.33
+    ),
+    CategoryData(
+        name =  "Alkwateb resort bir alalim.",
+        type = "Resort",
+        location = "Tajura, Tripoli",
+        price = 2455.33
+    ),
+    CategoryData(
+        name =  "Alkwateb resort bir alalim.",
+        type = "Resort",
+        location = "Tajura, Tripoli",
+        price = 2455.33
+    ),
+    CategoryData(
+        name =  "Alkwateb resort bir alalim.",
+        type = "Resort",
+        location = "Tajura, Tripoli",
+        price = 2455.33
+    ),
+    CategoryData(
+        name =  "Alkwateb resort bir alalim.",
+        type = "Resort",
+        location = "Tajura, Tripoli",
+        price = 2455.33
+    )
+    )
+
+
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
