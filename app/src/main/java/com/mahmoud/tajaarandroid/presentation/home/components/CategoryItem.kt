@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
+import com.mahmoud.tajaarandroid.ui.theme.BlueLotus
 
 @Composable
 fun CategoryItem(
@@ -41,7 +42,7 @@ fun CategoryItem(
     var value =
         String.format("$%.2f", category.price)
     Column(
-        modifier = modifier.padding(end = 12.dp, bottom = 12.dp),
+        modifier = modifier.padding(bottom = 12.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment =Alignment.Start
     ) {
@@ -63,7 +64,7 @@ fun CategoryItem(
                 style = TextStyle(
                     fontSize = 10.sp,
                     fontWeight = FontWeight.W700,
-                    color = MaterialTheme.colorScheme.onPrimary.copy(0.8f)
+                    color = BlueLotus.copy(0.8f)
                 )
             )
             Icon(

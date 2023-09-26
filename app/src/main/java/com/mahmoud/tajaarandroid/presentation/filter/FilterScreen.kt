@@ -12,11 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.mahmoud.tajaarandroid.presentation.filter.components.FilterHeader
+import com.mahmoud.tajaarandroid.presentation.util.ScreenWidth
 
 @Composable
 fun FilterScreen(
     modifier: Modifier = Modifier
 ) {
+
     Box(modifier = modifier.fillMaxSize()) {
         LazyColumn(
             modifier =  Modifier.fillMaxSize()
@@ -24,7 +26,8 @@ fun FilterScreen(
 
         }
         Column(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .background(Color.White)
                 .padding(top = 54.dp, start = 24.dp, end = 24.dp)
         ) {

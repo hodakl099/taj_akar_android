@@ -22,18 +22,21 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
+import com.mahmoud.tajaarandroid.presentation.util.ScreenWidth
 
 @Composable
 fun FilterHeader(
     modifier: Modifier = Modifier,
 ) {
+    val screenWidth = ScreenWidth.screenWidthDp()
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(bottom = 24.dp),
+            .padding(bottom = 24.dp, start = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ){
         IconButton(
@@ -56,11 +59,12 @@ fun FilterHeader(
                 contentDescription = null
             )
         }
-        Spacer(modifier = Modifier.width(140.dp))
+        Spacer(modifier = Modifier.width(screenWidth.dp / 4))
         Text(
             text = "Filter",
             fontSize = 18.sp,
             fontWeight = FontWeight.W700,
+            textAlign = TextAlign.Center
         )
     }
 

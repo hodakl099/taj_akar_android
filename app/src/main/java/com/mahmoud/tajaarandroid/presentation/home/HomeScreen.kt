@@ -37,6 +37,7 @@ fun HomeScreen(
 ) {
 
 
+
     //TODO() this is a dummy data, this will be fetched from a web server.
     val categories = listOf(
         CategoryData(
@@ -45,42 +46,42 @@ fun HomeScreen(
             address = "Old school, street 7 april",
             price = 2455.33
         ),
-                CategoryData(
-        type = "Resort",
-        location ="Alkwateb1 resort bir alalim.",
-                    address = "Old school, street 7 april",
-        price = 2455.33
-    ),
-    CategoryData(
-        type = "Resort",
-        location = "Alkwateb2 resort bir alalim.",
-        address = "Old school, street 7 april",
-        price = 2455.33
-    ),
-    CategoryData(
-        type = "Resort",
-        location = "Alkwateb3 resort bir alalim.",
-        address = "Old school, street 7 april",
-        price = 2455.33
-    ),
-    CategoryData(
-        type = "Resort",
-        location = "Alkwateb4 resort bir alalim.",
-        address = "Old school, street 7 april",
-        price = 2455.33
-    ),
-    CategoryData(
-        type = "Resort",
-        location = "Tajura, Tripoli",
-        address = "Old school, street 7 april",
-        price = 2455.33
-    ),
-    CategoryData(
-        type = "Resort",
-        location = "Tajura, Tripoli",
-        address = "Old school, street 7 april",
-        price = 2455.33
-    )
+        CategoryData(
+            type = "Resort",
+            location = "Alkwateb1 resort bir alalim.",
+            address = "Old school, street 7 april",
+            price = 2455.33
+        ),
+        CategoryData(
+            type = "Resort",
+            location = "Alkwateb2 resort bir alalim.",
+            address = "Old school, street 7 april",
+            price = 2455.33
+        ),
+        CategoryData(
+            type = "Resort",
+            location = "Alkwateb3 resort bir alalim.",
+            address = "Old school, street 7 april",
+            price = 2455.33
+        ),
+        CategoryData(
+            type = "Resort",
+            location = "Alkwateb4 resort bir alalim.",
+            address = "Old school, street 7 april",
+            price = 2455.33
+        ),
+        CategoryData(
+            type = "Resort",
+            location = "Tajura, Tripoli",
+            address = "Old school, street 7 april",
+            price = 2455.33
+        ),
+        CategoryData(
+            type = "Resort",
+            location = "Tajura, Tripoli",
+            address = "Old school, street 7 april",
+            price = 2455.33
+        )
     )
 
     val chunkedCategories = categories.chunked(2)
@@ -143,7 +144,7 @@ fun HomeScreen(
                 }
             }
             item {
-                Row (
+                Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(bottom = 54.dp, start = 24.dp, end = 24.dp),
@@ -168,7 +169,7 @@ fun HomeScreen(
             items(chunkedCategories) { pair ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
+                    horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     pair.forEach { category ->
                         CategoryItem(
@@ -189,7 +190,7 @@ fun HomeScreen(
 
         ) {
             HomeHeader(
-                modifier = Modifier.padding(bottom = 16.dp),
+                modifier = Modifier.padding(bottom = 20.dp),
                 imageRes = R.drawable.women
             )
         }

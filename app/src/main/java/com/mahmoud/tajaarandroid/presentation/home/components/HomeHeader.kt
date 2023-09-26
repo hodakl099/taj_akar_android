@@ -32,7 +32,8 @@ fun HomeHeader(
 ) {
     Row(
         modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .padding(top = 54.dp, start = 24.dp, end = 24.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
     ){
         Row(
@@ -53,7 +54,7 @@ fun HomeHeader(
                 tint = Color.Unspecified
             )
             Text(
-                text = "Sukabumi, West Java",
+                text = "Tripoli, Libya",
                 style = TextStyle(
                     fontSize = 12.sp,
                     fontWeight = FontWeight.W400,

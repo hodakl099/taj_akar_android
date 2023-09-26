@@ -141,7 +141,7 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = GET_STARTED,
                         ) {
-                            FilterScreen()
+                            HomeScreen()
                         }
                     }
 
