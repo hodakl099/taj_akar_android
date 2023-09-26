@@ -11,8 +11,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
+import com.mahmoud.tajaarandroid.presentation.authentication.components.ActionButton
 import com.mahmoud.tajaarandroid.presentation.filter.components.CustomLazyRow
 import com.mahmoud.tajaarandroid.presentation.filter.components.CustomText
 import com.mahmoud.tajaarandroid.presentation.filter.components.FilterHeader
@@ -109,7 +112,67 @@ fun FilterScreen(
         FilterItemData(
             itemText = "Office"
         ),
+    )
 
+    val bedRooms = listOf(
+        FilterItemData(
+            itemText = "1",
+        ),
+        FilterItemData(
+            itemText = "2",
+
+        ),
+        FilterItemData(
+            itemText = "3"
+        ),
+        FilterItemData(
+            itemText = "+4",
+            isSelected = true
+        ),
+    )
+    val bathRooms = listOf(
+        FilterItemData(
+            itemText = "1",
+        ),
+        FilterItemData(
+            itemText = "2",
+
+            ),
+        FilterItemData(
+            itemText = "3"
+        ),
+        FilterItemData(
+            itemText = "+4",
+            isSelected = true
+        ),
+    )
+
+    val amenities = listOf(
+        FilterItemData(
+            itemText = "Any",
+            isSelected = true
+        ),
+        FilterItemData(
+            itemText = "Amenties",
+        ),
+        FilterItemData(
+            itemText = "UnAmenties",
+
+            ),
+    )
+
+
+    val furnished = listOf(
+        FilterItemData(
+            itemText = "Any",
+            isSelected = true
+        ),
+        FilterItemData(
+            itemText = "Furnished",
+        ),
+        FilterItemData(
+            itemText = "Unfurnished",
+            ),
     )
 
     Box(modifier = modifier.fillMaxSize()) {
@@ -167,9 +230,63 @@ fun FilterScreen(
                 }
             }
             item {
+                CustomText(
+                    text = "Property Type"
+                )
+            }
+            item {
                 CustomLazyRow(properties) {
                     // TODO()
                 }
+            }
+
+            item {
+                CustomText(
+                    text = "Bedrooms"
+                )
+            }
+            item {
+                CustomLazyRow(bedRooms) {
+                    // TODO()
+                }
+            }
+
+            item {
+                CustomText(
+                    text = "Bathrooms"
+                )
+            }
+            item {
+                CustomLazyRow(bathRooms) {
+                    // TODO()
+                }
+            }
+            item {
+                CustomText(
+                    text = "Amenties"
+                )
+            }
+            item {
+                CustomLazyRow(amenities) {
+                    // TODO()
+                }
+            }
+            item {
+                CustomText(
+                    text = "Furnishing"
+                )
+            }
+            item {
+                CustomLazyRow(furnished) {
+                    // TODO()
+                }
+            }
+            item {
+                ActionButton(
+                    modifier = Modifier.fillMaxWidth().padding(bottom = 42.dp),
+                    textButton = "Filter",
+                    containerColor = MaterialTheme.colorScheme.onPrimary,
+                    textColor = Color.White)
             }
         }
         Column(

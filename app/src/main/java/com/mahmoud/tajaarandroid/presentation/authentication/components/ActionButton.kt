@@ -37,7 +37,7 @@ fun ActionButton(
                 color = Color.Black.copy(0.1f),
                 shape = RoundedCornerShape(14.dp)
             )
-            .width(327.dp)
+//            .width(327.dp)
             .height(54.dp),
         onClick = { /*TODO*/ },
         colors = ButtonDefaults.buttonColors(
