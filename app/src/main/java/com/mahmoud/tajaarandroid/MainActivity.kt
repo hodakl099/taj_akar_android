@@ -16,6 +16,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.mahmoud.tajaarandroid.presentation.filter.FilterScreen
 import com.mahmoud.tajaarandroid.presentation.home.HomeScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
@@ -140,7 +141,7 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = GET_STARTED,
                         ) {
-                            HomeScreen()
+                            FilterScreen()
                         }
                     }
 
