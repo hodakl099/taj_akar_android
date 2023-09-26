@@ -3,6 +3,7 @@ package com.mahmoud.tajaarandroid.presentation.filter.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +18,8 @@ import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.Center
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -32,12 +35,11 @@ import com.mahmoud.tajaarandroid.presentation.util.ScreenWidth
 fun FilterHeader(
     modifier: Modifier = Modifier,
 ) {
-    val screenWidth = ScreenWidth.screenWidthDp()
     Row(
         modifier = modifier
             .fillMaxWidth()
             .padding(bottom = 24.dp, start = 16.dp),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = CenterVertically,
     ){
         IconButton(
             modifier = Modifier
@@ -59,13 +61,21 @@ fun FilterHeader(
                 contentDescription = null
             )
         }
-        Spacer(modifier = Modifier.width(screenWidth.dp / 4))
-        Text(
-            text = "Filter",
-            fontSize = 18.sp,
-            fontWeight = FontWeight.W700,
-            textAlign = TextAlign.Center
-        )
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .align(CenterVertically)
+        ) {
+            Text(
+                modifier = Modifier.align(Center),
+                text = "Filter",
+                fontSize = 18.sp,
+                fontWeight = FontWeight.W700,
+                textAlign = TextAlign.Center
+            )
+        }
+        //an invisible box to balance the space between the items in the row.
+        Box(modifier = Modifier.size(44.dp))
     }
 
 }
