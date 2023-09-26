@@ -11,7 +11,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,6 +31,7 @@ import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.home.components.Category
 import com.mahmoud.tajaarandroid.presentation.home.components.CategoryData
+import com.mahmoud.tajaarandroid.presentation.home.components.CategoryItem
 import com.mahmoud.tajaarandroid.presentation.home.components.HomeHeader
 
 
@@ -38,48 +44,50 @@ fun HomeScreen(
     //TODO() this is a dummy data, this will be fetched from a web server.
     val categories = listOf(
         CategoryData(
-            name =  "Alkwateb resort bir alalim.",
             type = "Resort",
             location = "Tajura, Tripoli",
+            address = "Old school, street 7 april",
             price = 2455.33
         ),
                 CategoryData(
-                name =  "Alkwateb resort bir alalim.",
         type = "Resort",
-        location = "Tajura, Tripoli",
+        location ="Alkwateb1 resort bir alalim.",
+                    address = "Old school, street 7 april",
         price = 2455.33
     ),
     CategoryData(
-        name =  "Alkwateb resort bir alalim.",
         type = "Resort",
-        location = "Tajura, Tripoli",
+        location = "Alkwateb2 resort bir alalim.",
+        address = "Old school, street 7 april",
         price = 2455.33
     ),
     CategoryData(
-        name =  "Alkwateb resort bir alalim.",
         type = "Resort",
-        location = "Tajura, Tripoli",
+        location = "Alkwateb3 resort bir alalim.",
+        address = "Old school, street 7 april",
         price = 2455.33
     ),
     CategoryData(
-        name =  "Alkwateb resort bir alalim.",
         type = "Resort",
-        location = "Tajura, Tripoli",
+        location = "Alkwateb4 resort bir alalim.",
+        address = "Old school, street 7 april",
         price = 2455.33
     ),
     CategoryData(
-        name =  "Alkwateb resort bir alalim.",
         type = "Resort",
         location = "Tajura, Tripoli",
+        address = "Old school, street 7 april",
         price = 2455.33
     ),
     CategoryData(
-        name =  "Alkwateb resort bir alalim.",
         type = "Resort",
         location = "Tajura, Tripoli",
+        address = "Old school, street 7 april",
         price = 2455.33
     )
     )
+
+    val chunkedCategories = categories.chunked(2)
 
 
     Box(
@@ -140,7 +148,8 @@ fun HomeScreen(
             }
             item {
                 Row (
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
                         .padding(bottom = 54.dp, start = 24.dp, end = 24.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
@@ -159,6 +168,22 @@ fun HomeScreen(
                     )
                 }
 
+            }
+            items(chunkedCategories) { pair ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    pair.forEach { category ->
+                        CategoryItem(
+                            modifier = Modifier.weight(1f),
+                            category = category
+                        )
+                        if (pair.size < 2) {
+                            Box(modifier = Modifier.weight(1f))
+                        }
+                    }
+                }
             }
         }
         Column(
