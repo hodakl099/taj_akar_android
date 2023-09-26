@@ -28,13 +28,21 @@ fun FilterItem(
         colors = ButtonDefaults.buttonColors(
             containerColor = if (isSelected) BlueLotus else Color.Transparent
         ),
-        border = BorderStroke(width = if (isSelected) 1.dp else 0.dp, color = Color.Gray)
+        border = BorderStroke(width = if (isSelected) 1.dp else 0.dp, color = if (isSelected) Color.Transparent else Color.Gray
+        )
     ) {
         Text(
             text = itemText,
             fontSize = 12.sp,
             fontWeight = FontWeight.W700,
-            color = if (isSelected) MaterialTheme.colorScheme.onPrimary else Color(0xff303030).copy(0.8f)
+            color = if (isSelected) MaterialTheme.colorScheme.onSecondary else Color(0xff303030).copy(0.8f)
         )
     }
 }
+
+
+//TODO() refactor later.
+data class FilterItemData(
+    val itemText : String,
+    val isSelected : Boolean = false
+)
