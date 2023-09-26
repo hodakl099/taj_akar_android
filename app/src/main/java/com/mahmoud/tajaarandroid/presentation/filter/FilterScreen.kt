@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -26,7 +27,8 @@ fun FilterScreen(
 
     Box(modifier = modifier.fillMaxSize()) {
         LazyColumn(
-            modifier =  Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
                 .padding(horizontal = 24.dp)
         ) {
             item {
@@ -39,6 +41,9 @@ fun FilterScreen(
                         color = Color(0xff303030).copy(0.8f)
                     )
                 )
+            }
+            item {
+
             }
 
         }
