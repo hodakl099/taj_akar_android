@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -16,8 +15,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.mahmoud.tajaarandroid.presentation.filter.FilterScreen
-import com.mahmoud.tajaarandroid.presentation.home.HomeScreen
+import com.mahmoud.tajaarandroid.presentation.filter.FilterSettingsScreen
+import com.mahmoud.tajaarandroid.presentation.filter.FilteredScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
@@ -28,7 +27,6 @@ import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_1
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_2
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_3
 import com.mahmoud.tajaarandroid.presentation.util.Route.SPLASH
-import com.mahmoud.tajaarandroid.presentation.verification.VerificationScreen
 import com.mahmoud.tajaarandroid.ui.theme.TajAarAndroidTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -141,7 +139,7 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = GET_STARTED,
                         ) {
-                            FilterScreen()
+                            FilteredScreen()
                         }
                     }
 

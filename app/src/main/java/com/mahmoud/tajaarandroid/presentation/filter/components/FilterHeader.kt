@@ -24,22 +24,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
-import com.mahmoud.tajaarandroid.presentation.util.ScreenWidth
 
 @Composable
 fun FilterHeader(
     modifier: Modifier = Modifier,
+    headerText : String
 ) {
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(bottom = 24.dp, start = 16.dp),
-        verticalAlignment = CenterVertically,
+            .padding(bottom = 24.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
     ){
         IconButton(
             modifier = Modifier
@@ -64,18 +66,22 @@ fun FilterHeader(
         Box(
             modifier = Modifier
                 .weight(1f)
-                .align(CenterVertically)
+                .align(CenterVertically),
         ) {
             Text(
-                modifier = Modifier.align(Center),
-                text = "Filter",
-                fontSize = 18.sp,
-                fontWeight = FontWeight.W700,
-                textAlign = TextAlign.Center
+                modifier =Modifier.align(Center),
+                text = headerText,
+                style = TextStyle(
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.W700,
+                    textAlign = TextAlign.Center,
+                )
             )
         }
-        //an invisible box to balance the space between the items in the row.
+
+        // an invisible box to distribute the Composable equally.
         Box(modifier = Modifier.size(44.dp))
+
     }
 
 }

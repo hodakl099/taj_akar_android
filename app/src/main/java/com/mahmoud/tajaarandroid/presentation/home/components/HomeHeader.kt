@@ -28,7 +28,7 @@ import com.mahmoud.tajaarandroid.R
 @Composable
 fun HomeHeader(
     modifier: Modifier = Modifier,
-    imageRes : Int
+    imageRes : Int,
 ) {
     Row(
         modifier = modifier

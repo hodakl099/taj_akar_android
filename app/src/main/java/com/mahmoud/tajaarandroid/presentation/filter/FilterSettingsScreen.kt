@@ -9,33 +9,24 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Button
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.authentication.components.ActionButton
 import com.mahmoud.tajaarandroid.presentation.filter.components.CustomLazyRow
 import com.mahmoud.tajaarandroid.presentation.filter.components.CustomText
 import com.mahmoud.tajaarandroid.presentation.filter.components.FilterHeader
-import com.mahmoud.tajaarandroid.presentation.filter.components.FilterItem
 import com.mahmoud.tajaarandroid.presentation.filter.components.FilterItemData
 import com.mahmoud.tajaarandroid.presentation.filter.components.MinMaxButton
 
 @Composable
-fun FilterScreen(
+fun FilterSettingsScreen(
     modifier: Modifier = Modifier
 ) {
 
@@ -116,6 +107,10 @@ fun FilterScreen(
 
     val bedRooms = listOf(
         FilterItemData(
+            itemText = "Any",
+            isSelected = true
+        ),
+        FilterItemData(
             itemText = "1",
         ),
         FilterItemData(
@@ -127,10 +122,13 @@ fun FilterScreen(
         ),
         FilterItemData(
             itemText = "+4",
-            isSelected = true
         ),
     )
     val bathRooms = listOf(
+        FilterItemData(
+            itemText = "Any",
+            isSelected = true
+        ),
         FilterItemData(
             itemText = "1",
         ),
@@ -143,7 +141,6 @@ fun FilterScreen(
         ),
         FilterItemData(
             itemText = "+4",
-            isSelected = true
         ),
     )
 
@@ -295,7 +292,9 @@ fun FilterScreen(
                 .background(Color.White)
                 .padding(top = 54.dp, start = 24.dp, end = 24.dp)
         ) {
-            FilterHeader()
+            FilterHeader(
+                headerText = "Filter"
+            )
         }
     }
 }
