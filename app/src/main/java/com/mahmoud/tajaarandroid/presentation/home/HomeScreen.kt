@@ -138,7 +138,7 @@ fun HomeScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(Color.White)
-
+                .padding(top = 54.dp, start = 24.dp, end = 24.dp)
         ) {
             HomeHeader(
                 modifier = Modifier.padding(bottom = 20.dp),

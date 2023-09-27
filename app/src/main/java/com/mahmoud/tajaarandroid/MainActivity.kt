@@ -21,6 +21,7 @@ import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingViewModel
+import com.mahmoud.tajaarandroid.presentation.search.SearchScreen
 import com.mahmoud.tajaarandroid.presentation.splash.SplashScreen
 import com.mahmoud.tajaarandroid.presentation.util.Route.GET_STARTED
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_1
@@ -139,7 +140,7 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = GET_STARTED,
                         ) {
-                            FilteredScreen()
+                            SearchScreen()
                         }
                     }
 
