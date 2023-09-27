@@ -13,7 +13,8 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun CustomLazyRow(
-    itemsList : List<FilterItemData>, onClick : () -> Unit
+    itemsList : List<FilterItemData>, onClick : () -> Unit,
+    seperator : Boolean = true
 ) {
     LazyRow(
         modifier = Modifier
@@ -29,6 +30,7 @@ fun CustomLazyRow(
             )
         }
     }
+    if(seperator)
     Divider(
         modifier = Modifier.padding(start = 24.dp,end = 24.dp,top = 28.dp),
         color = Color.Black.copy(0.05f),

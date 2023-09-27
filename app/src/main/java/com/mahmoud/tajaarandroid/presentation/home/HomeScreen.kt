@@ -36,8 +36,6 @@ import com.mahmoud.tajaarandroid.presentation.util.chunkedCategories
 fun HomeScreen(
     modifier: Modifier = Modifier,
 ) {
-
-
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
