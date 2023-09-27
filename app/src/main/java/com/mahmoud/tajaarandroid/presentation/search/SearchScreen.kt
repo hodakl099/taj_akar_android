@@ -30,7 +30,6 @@ fun SearchScreen(
 
             }
         }
-
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -41,9 +40,11 @@ fun SearchScreen(
                 value = searchText,
                 onValueChange = { newText ->
                     searchText = newText
+                },
+                onDeleteClick = {
+                    //TODO()
                 }
             )
         }
     }
-
 }
