@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.authentication.components.ActionButton
 import com.mahmoud.tajaarandroid.presentation.filter.components.CustomLazyRow
@@ -181,7 +182,8 @@ fun FilterSettingsScreen(
             item {
                 CustomText(
                     modifier = Modifier.padding(top = 133.dp),
-                    text = "Location"
+                    text = "Location",
+                    textUnit = 14.sp
                 )
             }
             item {
@@ -192,7 +194,8 @@ fun FilterSettingsScreen(
             }
             item {
                 CustomText(
-                    text = "Payment Method"
+                    text = "Payment Method",
+                    textUnit = 14.sp
                 )
             }
             item {
@@ -202,7 +205,10 @@ fun FilterSettingsScreen(
                 )
             }
             item {
-                CustomText(text = "Price Monthly")
+                CustomText(
+                    text = "Price Monthly",
+                    textUnit = 14.sp
+                )
             }
             item {
                 Row(
@@ -231,7 +237,8 @@ fun FilterSettingsScreen(
             }
             item {
                 CustomText(
-                    text = "Property Type"
+                    text = "Property Type",
+                    textUnit = 14.sp
                 )
             }
             item {
@@ -244,7 +251,8 @@ fun FilterSettingsScreen(
 
             item {
                 CustomText(
-                    text = "Bedrooms"
+                    text = "Bedrooms",
+                    textUnit = 14.sp
                 )
             }
             item {
@@ -258,7 +266,8 @@ fun FilterSettingsScreen(
 
             item {
                 CustomText(
-                    text = "Bathrooms"
+                    text = "Bathrooms",
+                    textUnit = 14.sp
                 )
             }
             item {
@@ -269,7 +278,8 @@ fun FilterSettingsScreen(
             }
             item {
                 CustomText(
-                    text = "Amenties"
+                    text = "Amenties",
+                    textUnit = 14.sp
                 )
             }
             item {
@@ -280,7 +290,8 @@ fun FilterSettingsScreen(
             }
             item {
                 CustomText(
-                    text = "Furnishing"
+                    text = "Furnishing",
+                    textUnit = 14.sp
                 )
             }
             item {

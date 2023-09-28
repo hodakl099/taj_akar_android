@@ -28,7 +28,8 @@ fun ActionButton(
     modifier: Modifier = Modifier,
     textButton : String,
     containerColor : Color,
-    textColor : Color
+    textColor : Color,
+    onClick : () -> Unit = {}
 ) {
     Button(
         modifier = modifier
@@ -39,7 +40,7 @@ fun ActionButton(
             )
 //            .width(327.dp)
             .height(54.dp),
-        onClick = { /*TODO*/ },
+        onClick = onClick,
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor
         ),
