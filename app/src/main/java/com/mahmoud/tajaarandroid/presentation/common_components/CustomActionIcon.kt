@@ -23,7 +23,8 @@ import com.mahmoud.tajaarandroid.R
 fun CustomActionIcon(
     iconRes: Int,
     hasWhiteBackground : Boolean = false,
-    hasBorder : Boolean = false
+    hasBorder : Boolean = false,
+    backgroundColor : Color = Color.White
 ) {
     Box(
         modifier = Modifier
@@ -34,7 +35,7 @@ fun CustomActionIcon(
                 color = Color(0xFFF9F9F9),
                 shape = RoundedCornerShape(10.dp)
             )
-            .background(if (hasWhiteBackground) Color.White  else Color(0xFFF9F9F9) )
+            .background(if (hasWhiteBackground) backgroundColor  else Color(0xFFF9F9F9) )
     ) {
         IconButton(
             modifier = Modifier

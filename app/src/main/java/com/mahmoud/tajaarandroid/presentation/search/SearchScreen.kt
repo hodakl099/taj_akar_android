@@ -50,7 +50,7 @@ fun SearchScreen() {
     BaseScreen(
         headerContent = {
                 SearchHeader(
-                    modifier =Modifier.padding(top = 32.dp, start = 24.dp, end = 24.dp),
+                    modifier = Modifier.padding(top = 32.dp, start = 24.dp, end = 24.dp),
                     value = searchText,
                     onValueChange = { newText ->
                         searchText = newText
