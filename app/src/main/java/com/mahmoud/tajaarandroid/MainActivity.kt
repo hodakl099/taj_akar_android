@@ -11,19 +11,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.mahmoud.tajaarandroid.presentation.details.DetailScreen
 import com.mahmoud.tajaarandroid.presentation.filter.FilterSettingsScreen
-import com.mahmoud.tajaarandroid.presentation.filter.FilteredScreen
-import com.mahmoud.tajaarandroid.presentation.home.HomeScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingViewModel
-import com.mahmoud.tajaarandroid.presentation.search.SearchScreen
 import com.mahmoud.tajaarandroid.presentation.splash.SplashScreen
 import com.mahmoud.tajaarandroid.presentation.util.Route.GET_STARTED
 import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_1
@@ -45,8 +43,9 @@ class MainActivity : ComponentActivity() {
             TajAarAndroidTheme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
+                    containerColor = Color.White
                 ) { innerPadding ->
-                    NavHost(navController = navController, startDestination = GET_STARTED ) {
+                    NavHost(navController = navController, startDestination = GET_STARTED) {
                         composable(
                             SPLASH,
                             enterTransition = {
@@ -64,7 +63,7 @@ class MainActivity : ComponentActivity() {
                         ) {
                             SplashScreen(
                                 modifier = Modifier.padding(innerPadding),
-                                onNavigate =  {
+                                onNavigate = {
                                     navController.navigate(ONBOARDING_STEP_1) {
                                         popUpTo(SPLASH) {
                                             inclusive = true
@@ -88,16 +87,16 @@ class MainActivity : ComponentActivity() {
                                 )
                             }
                         ) {
-                                OnBoardingStepOne(
-                                    onNavigate = {
-                                        viewModel.nextStep()
-                                        navController.navigate(ONBOARDING_STEP_2)
-                                    },
-                                    viewModel = viewModel
-                                )
+                            OnBoardingStepOne(
+                                onNavigate = {
+                                    viewModel.nextStep()
+                                    navController.navigate(ONBOARDING_STEP_2)
+                                },
+                                viewModel = viewModel
+                            )
                         }
                         composable(
-                          route = ONBOARDING_STEP_2,
+                            route = ONBOARDING_STEP_2,
                             enterTransition = {
                                 slideIntoContainer(
                                     AnimatedContentTransitionScope.SlideDirection.Left,
@@ -142,10 +141,9 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = GET_STARTED,
                         ) {
-                            SearchScreen()
+                            DetailScreen()
                         }
                     }
-
                 }
             }
         }
