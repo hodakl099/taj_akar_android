@@ -116,7 +116,7 @@ fun FilterSettingsScreen(
         FilterItemData(
             itemText = "2",
 
-        ),
+            ),
         FilterItemData(
             itemText = "3"
         ),
@@ -169,7 +169,7 @@ fun FilterSettingsScreen(
         ),
         FilterItemData(
             itemText = "Unfurnished",
-            ),
+        ),
     )
 
     Box(modifier = modifier.fillMaxSize()) {
@@ -185,9 +185,10 @@ fun FilterSettingsScreen(
                 )
             }
             item {
-                CustomLazyRow(locations) {
-                    // TODO()
-                }
+                CustomLazyRow(
+                    itemsList = locations,
+                    onClick = {}
+                )
             }
             item {
                 CustomText(
@@ -195,9 +196,10 @@ fun FilterSettingsScreen(
                 )
             }
             item {
-                CustomLazyRow(paymentMethods) {
-                    // TODO()
-                }
+                CustomLazyRow(
+                    itemsList = paymentMethods,
+                    onClick = {}
+                )
             }
             item {
                 CustomText(text = "Price Monthly")
@@ -222,9 +224,10 @@ fun FilterSettingsScreen(
                 }
             }
             item {
-                CustomLazyRow(prices) {
-                    // TODO()
-                }
+                CustomLazyRow(
+                    itemsList = prices,
+                    onClick = {}
+                )
             }
             item {
                 CustomText(
@@ -232,9 +235,11 @@ fun FilterSettingsScreen(
                 )
             }
             item {
-                CustomLazyRow(properties) {
-                    // TODO()
-                }
+                CustomLazyRow(
+                    itemsList = properties,
+                    onClick = {
+
+                    })
             }
 
             item {
@@ -243,9 +248,12 @@ fun FilterSettingsScreen(
                 )
             }
             item {
-                CustomLazyRow(bedRooms) {
-                    // TODO()
-                }
+                CustomLazyRow(
+                    itemsList = bedRooms,
+                    onClick = {
+
+                    }
+                )
             }
 
             item {
@@ -254,9 +262,10 @@ fun FilterSettingsScreen(
                 )
             }
             item {
-                CustomLazyRow(bathRooms) {
-                    // TODO()
-                }
+                CustomLazyRow(
+                    itemsList = bathRooms,
+                    onClick = {}
+                )
             }
             item {
                 CustomText(
@@ -264,9 +273,10 @@ fun FilterSettingsScreen(
                 )
             }
             item {
-                CustomLazyRow(amenities) {
-                    // TODO()
-                }
+                CustomLazyRow(
+                    itemsList = amenities,
+                    onClick = {}
+                )
             }
             item {
                 CustomText(
@@ -274,16 +284,20 @@ fun FilterSettingsScreen(
                 )
             }
             item {
-                CustomLazyRow(furnished) {
-                    // TODO()
-                }
+                CustomLazyRow(
+                    itemsList = furnished,
+                    onClick = {}
+                )
             }
             item {
                 ActionButton(
-                    modifier = Modifier.fillMaxWidth().padding(bottom = 42.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 42.dp),
                     textButton = "Filter",
                     containerColor = MaterialTheme.colorScheme.onPrimary,
-                    textColor = Color.White)
+                    textColor = Color.White
+                )
             }
         }
         Column(

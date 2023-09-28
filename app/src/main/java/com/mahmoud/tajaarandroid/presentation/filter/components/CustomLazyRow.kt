@@ -13,11 +13,12 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun CustomLazyRow(
+    modifier: Modifier = Modifier,
     itemsList : List<FilterItemData>, onClick : () -> Unit,
     seperator : Boolean = true
 ) {
     LazyRow(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(top = 18.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)

@@ -46,7 +46,6 @@ fun ForgotPasswordScreen(
     var dummyText by remember {
         mutableStateOf(TextFieldValue(""))
     }
-
         Column(
             modifier = modifier
                 .fillMaxSize()

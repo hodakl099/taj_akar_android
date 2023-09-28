@@ -25,6 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
+import com.mahmoud.tajaarandroid.presentation.components.BaseScreen
 import com.mahmoud.tajaarandroid.presentation.home.components.Category
 import com.mahmoud.tajaarandroid.presentation.home.components.CategoryData
 import com.mahmoud.tajaarandroid.presentation.home.components.CategoryItem
@@ -36,14 +37,15 @@ import com.mahmoud.tajaarandroid.presentation.util.chunkedCategories
 fun HomeScreen(
     modifier: Modifier = Modifier,
 ) {
-    Box(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        LazyColumn(
-            modifier = modifier
-                .fillMaxSize()
-                .padding(horizontal = 24.dp)
-        ) {
+
+    BaseScreen(
+        headerContent = {
+            HomeHeader(
+                modifier = Modifier.padding(bottom = 20.dp),
+                imageRes = R.drawable.women
+            )
+        } ,
+        lazyColumnContent = {
             item {
                 Spacer(modifier = Modifier.height(86.dp))
             }
@@ -57,6 +59,7 @@ fun HomeScreen(
                     contentDescription = "Villa image"
                 )
             }
+
             item {
                 Row(
                     modifier = Modifier
@@ -91,7 +94,9 @@ fun HomeScreen(
                         categoryName = "Urban"
                     )
                 }
+
             }
+
             item {
                 Row(
                     modifier = Modifier
@@ -132,16 +137,5 @@ fun HomeScreen(
                 }
             }
         }
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.White)
-                .padding(top = 54.dp, start = 24.dp, end = 24.dp)
-        ) {
-            HomeHeader(
-                modifier = Modifier.padding(bottom = 20.dp),
-                imageRes = R.drawable.women
-            )
-        }
-    }
+    )
 }

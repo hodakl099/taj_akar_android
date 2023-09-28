@@ -21,19 +21,21 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mahmoud.tajaarandroid.presentation.components.BaseScreen
 import com.mahmoud.tajaarandroid.presentation.filter.components.FilterHeader
 import com.mahmoud.tajaarandroid.presentation.home.components.CategoryItem
 import com.mahmoud.tajaarandroid.presentation.util.chunkedCategories
 
 @Composable
-fun FilteredScreen(
-    modifier: Modifier = Modifier
-) {
-    Box(modifier = modifier.fillMaxSize()) {
-        LazyColumn(
-            modifier = Modifier.fillMaxSize()
-                .padding(horizontal = 24.dp)
-        ) {
+fun FilteredScreen() {
+    BaseScreen(
+        headerContent = { modifier ->
+            FilterHeader(
+                headerText = "Filtered Category"
+            )
+        },
+        headerModifier = Modifier .padding(top = 54.dp, start = 24.dp, end = 24.dp),
+        lazyColumnContent = {
             item {
                 Spacer(modifier = Modifier.height(133.dp))
             }
@@ -54,16 +56,5 @@ fun FilteredScreen(
                 }
             }
         }
-
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(Color.White)
-                .padding(top = 54.dp, start = 24.dp, end = 24.dp)
-        ) {
-            FilterHeader(
-                headerText = "Filtered Category"
-            )
-        }
-    }
+    )
 }

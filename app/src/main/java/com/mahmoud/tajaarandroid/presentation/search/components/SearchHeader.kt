@@ -29,9 +29,9 @@ fun SearchHeader(
     modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit,
-    onDeleteClick : () -> Unit
+    onDeleteClick : () -> Unit,
+    icon : @Composable () -> Unit
 ) {
-    val context = LocalContext.current
     Row(
         modifier = modifier
             .fillMaxWidth(),
@@ -59,16 +59,10 @@ fun SearchHeader(
                     .size(59.dp)
                     .padding(18.dp),
                 onClick = onDeleteClick,
+                enabled = value.isNotEmpty()
 
             ) {
-                Icon(
-                    painter = painterResource(
-                        id = if (value.isNotEmpty()) R.drawable.close_circle
-                        else R.drawable.search
-                    ),
-                    contentDescription = "Close",
-                    tint = Color.Unspecified,
-                )
+                icon()
             }
         }
     }
