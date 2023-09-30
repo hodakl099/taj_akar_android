@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -21,20 +20,17 @@ import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
@@ -45,6 +41,7 @@ import com.mahmoud.tajaarandroid.presentation.details.components.DescriptionCard
 import com.mahmoud.tajaarandroid.presentation.details.components.DescriptionText
 import com.mahmoud.tajaarandroid.presentation.details.components.DetailCustomText
 import com.mahmoud.tajaarandroid.presentation.details.components.DetailsHeader
+import com.mahmoud.tajaarandroid.presentation.details.components.RatingComponent
 import com.mahmoud.tajaarandroid.presentation.details.components.UtilityCard
 import kotlinx.coroutines.launch
 
@@ -125,10 +122,10 @@ fun DetailScreen() {
 
 
     BoxWithConstraints {
-        val sheetHeight = this.constraints.maxHeight * 0.85f
+        val sheetHeight = this.constraints.maxHeight * 0.89f
         ModalBottomSheetLayout(
             sheetContent = {
-                SheetContent(
+                DetailSheetContent(
                     modifier = Modifier.height(with(LocalDensity.current) {sheetHeight.toDp()})
                 )
             },
@@ -177,33 +174,7 @@ fun DetailScreen() {
                                         color = Color.Black.copy(0.8f)
                                     )
                                 )
-                                Box(
-                                    modifier = Modifier
-                                        .clip(RoundedCornerShape(13.dp))
-                                        .background(
-                                            Color(0xffF2994A).copy(0.1f)
-                                        )
-                                ) {
-                                    Row(
-                                        modifier = Modifier.padding(8.dp)
-                                    ) {
-                                        Icon(
-                                            painter = painterResource(id = R.drawable.star),
-                                            contentDescription = null,
-                                            tint = Color.Unspecified
-                                        )
-                                        Spacer(modifier = Modifier.width(5.dp))
-                                        Text(
-                                            text = "4.9",
-                                            style = TextStyle(
-                                                fontSize = 13.sp,
-                                                fontWeight = FontWeight.W700,
-                                                color = Color(0xffF2994A)
-                                            )
-                                        )
-                                    }
-                                }
-
+                                RatingComponent()
                             }
                             Spacer(modifier = Modifier.height(8.dp))
                             Row(
@@ -278,7 +249,7 @@ fun DetailScreen() {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(vertical = 32.dp),
-                            textButton = "Request an inquiry",
+                            textButton = "Apply for buy",
                             containerColor = MaterialTheme.colorScheme.onPrimary,
                             textColor = Color.White,
                             onClick = {

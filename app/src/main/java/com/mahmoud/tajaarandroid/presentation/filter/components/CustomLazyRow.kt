@@ -32,10 +32,6 @@ fun CustomLazyRow(
         }
     }
     if(seperator)
-    Divider(
-        modifier = Modifier.padding(start = 24.dp,end = 24.dp,top = 28.dp),
-        color = Color.Black.copy(0.05f),
-        thickness = 1.dp
-    )
+        CustomDivider(modifier = Modifier.padding(start = 24.dp,end = 24.dp,top = 28.dp))
 
 }
