@@ -1,5 +1,6 @@
 package com.mahmoud.tajaarandroid.presentation.home
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,11 +10,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,6 +26,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.common_components.BaseScreen
 import com.mahmoud.tajaarandroid.presentation.home.components.Category
@@ -34,11 +40,34 @@ import com.mahmoud.tajaarandroid.presentation.util.chunkedCategories
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
+    homeNavController : NavController
 ) {
 
-    Scaffold() { innerPadding ->
+    val items = listOf(
+        "tab1",
+        "tab2",
+        "tab3",
+        "tab4"
+    )
+
+    Scaffold(
+        bottomBar = {
+
+            BottomNavigation {
+                val navBackStackEntry by homeNavController.currentBackStackEntryAsState()
+                val currentDestination = navBackStackEntry?.destination?.route
+                items.forEach { screen ->
+                    BottomNavigationItem(
+                        selected = currentDestination == screen,
+                        onClick = { /*TODO*/ },
+                        icon = { /*TODO*/ }
+                    )
+                }
+            }
+        }
+    ) { innerPadding ->
         BaseScreen(
-            modifier = Modifier.padding(innerPadding),
+            modifier = modifier.padding(innerPadding),
             headerContent = {
                 HomeHeader(
                     modifier = Modifier.padding(bottom = 20.dp),
@@ -140,4 +169,12 @@ fun HomeScreen(
             }
         )
     }
+}
+
+sealed class BottomNavItem(val route: String, @DrawableRes val icon: Int) {
+    object Tab1 : BottomNavItem("tab1", R.drawable.urban)
+    object Tab2 : BottomNavItem("tab2", R.drawable.call_call)
+    object Tab3 : BottomNavItem("tab3", R.drawable.locationcall)
+    object Tab4: BottomNavItem("tab4", R.drawable.maximize)
+
 }
