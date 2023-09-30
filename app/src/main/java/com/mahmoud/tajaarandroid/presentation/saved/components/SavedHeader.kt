@@ -1,10 +1,9 @@
-package com.mahmoud.tajaarandroid.presentation.home.components
+package com.mahmoud.tajaarandroid.presentation.saved.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -26,7 +25,7 @@ import com.mahmoud.tajaarandroid.R
 
 
 @Composable
-fun HomeHeader(
+fun SavedHeader(
     modifier: Modifier = Modifier,
     imageRes : Int,
     headerText : String
@@ -36,38 +35,21 @@ fun HomeHeader(
             .fillMaxWidth()
             .padding(top = 54.dp, start = 24.dp, end = 24.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
     ){
-        Row(
-            modifier = Modifier
-                .width(174.dp)
-                .height(44.dp)
-                .background(
-                    color = Color(0xffF9F9F9),
-                    shape = RoundedCornerShape(10.dp)
-                )
-                .padding(8.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically
-        ){
-            Icon(
-                painter = painterResource(id = R.drawable.location),
-                contentDescription = "Location",
-                tint = Color.Unspecified
-            )
             Text(
                 text = headerText,
                 style = TextStyle(
-                    fontSize = 12.sp,
-                    fontWeight = FontWeight.W400,
-                    color = Color.Black.copy(0.8f)
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.W700,
+                    color = Color.Black.copy(0.8f),
+                    letterSpacing = 0.4.sp
                 )
             )
-        }
         Image(
-            modifier =Modifier.size(44.dp),
+            modifier = Modifier.size(44.dp),
             painter = painterResource(id = imageRes),
             contentDescription = "women"
         )
     }
-
 }

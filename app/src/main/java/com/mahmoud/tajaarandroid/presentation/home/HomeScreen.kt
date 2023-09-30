@@ -37,7 +37,8 @@ fun HomeScreen(
         headerContent = {
             HomeHeader(
                 modifier = Modifier.padding(bottom = 20.dp),
-                imageRes = R.drawable.women
+                imageRes = R.drawable.women,
+                headerText = "Tripoli, Libya"
             )
         } ,
         lazyColumnContent = {
