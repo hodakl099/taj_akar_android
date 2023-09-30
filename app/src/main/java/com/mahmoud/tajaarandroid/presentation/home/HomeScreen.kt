@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,110 +30,114 @@ import com.mahmoud.tajaarandroid.presentation.home.components.HomeHeader
 import com.mahmoud.tajaarandroid.presentation.util.chunkedCategories
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
 ) {
 
-    BaseScreen(
-        headerContent = {
-            HomeHeader(
-                modifier = Modifier.padding(bottom = 20.dp),
-                imageRes = R.drawable.women,
-                headerText = "Tripoli, Libya"
-            )
-        } ,
-        lazyColumnContent = {
-            item {
-                Spacer(modifier = Modifier.height(86.dp))
-            }
-            item {
-                Image(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(486.dp)
-                        .padding(top = 32.dp),
-                    painter = painterResource(id = R.drawable.villa),
-                    contentDescription = "Villa image"
+    Scaffold() { innerPadding ->
+        BaseScreen(
+            modifier = Modifier.padding(innerPadding),
+            headerContent = {
+                HomeHeader(
+                    modifier = Modifier.padding(bottom = 20.dp),
+                    imageRes = R.drawable.women,
+                    headerText = "Tripoli, Libya"
                 )
-            }
-
-            item {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 24.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceEvenly
-
-                ) {
-                    Category(
-                        iconRes = R.drawable.condo,
-                        categoryName = "Condo"
-                    )
-                    Category(
-                        iconRes = R.drawable.resort,
-                        categoryName = "Resort"
-                    )
+            },
+            lazyColumnContent = {
+                item {
+                    Spacer(modifier = Modifier.height(86.dp))
                 }
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 24.dp, bottom = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    Category(
-                        iconRes = R.drawable.office,
-                        categoryName = "Office"
-                    )
-                    Category(
-                        iconRes = R.drawable.urban,
-                        categoryName = "Urban"
+                item {
+                    Image(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(486.dp)
+                            .padding(top = 32.dp),
+                        painter = painterResource(id = R.drawable.villa),
+                        contentDescription = "Villa image"
                     )
                 }
 
-            }
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 24.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceEvenly
 
-            item {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 16.dp, start = 24.dp, end = 24.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = "Recommended",
-                        style = TextStyle(
-                            fontWeight = FontWeight.W700,
-                            color = Color.Black.copy(0.8f),
-                            fontSize = 16.sp
-                        ),
-                    )
-                    Icon(
-                        painter = painterResource(id = R.drawable.candle),
-                        contentDescription = null
-                    )
-                }
-
-            }
-            items(chunkedCategories) { pair ->
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
-                ) {
-                    pair.forEach { category ->
-                        CategoryItem(
-                            modifier = Modifier.weight(1f),
-                            category = category
+                    ) {
+                        Category(
+                            iconRes = R.drawable.condo,
+                            categoryName = "Condo"
                         )
-                        if (pair.size < 2) {
-                            Box(modifier = Modifier.weight(1f))
+                        Category(
+                            iconRes = R.drawable.resort,
+                            categoryName = "Resort"
+                        )
+                    }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 24.dp, bottom = 16.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        Category(
+                            iconRes = R.drawable.office,
+                            categoryName = "Office"
+                        )
+                        Category(
+                            iconRes = R.drawable.urban,
+                            categoryName = "Urban"
+                        )
+                    }
+
+                }
+
+                item {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 16.dp, start = 24.dp, end = 24.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = "Recommended",
+                            style = TextStyle(
+                                fontWeight = FontWeight.W700,
+                                color = Color.Black.copy(0.8f),
+                                fontSize = 16.sp
+                            ),
+                        )
+                        Icon(
+                            painter = painterResource(id = R.drawable.candle),
+                            contentDescription = null
+                        )
+                    }
+
+                }
+                items(chunkedCategories) { pair ->
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        pair.forEach { category ->
+                            CategoryItem(
+                                modifier = Modifier.weight(1f),
+                                category = category
+                            )
+                            if (pair.size < 2) {
+                                Box(modifier = Modifier.weight(1f))
+                            }
                         }
                     }
                 }
             }
-        }
-    )
+        )
+    }
 }
