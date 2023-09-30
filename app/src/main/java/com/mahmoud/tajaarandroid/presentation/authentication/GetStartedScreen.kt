@@ -30,6 +30,8 @@ import com.mahmoud.tajaarandroid.ui.theme.BlueLotus
 @Composable
 fun GetStartedScreen(
     modifier : Modifier = Modifier,
+    onSignUp : () -> Unit,
+    onLogin : () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -69,7 +71,7 @@ fun GetStartedScreen(
             modifier = Modifier
                 .width(327.dp)
                 .height(54.dp),
-            onClick = {  },
+            onClick = onLogin,
             shape = RoundedCornerShape(14.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = MaterialTheme.colorScheme.onPrimary
@@ -88,7 +90,7 @@ fun GetStartedScreen(
             modifier = Modifier
                 .width(327.dp)
                 .height(54.dp),
-            onClick = {  },
+            onClick = onSignUp,
             shape = RoundedCornerShape(14.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor =  MaterialTheme.colorScheme.onSecondary
@@ -96,12 +98,11 @@ fun GetStartedScreen(
             border = BorderStroke(
                 width = 1.dp,
                 color = BlueLotus.copy(0.2f)
-            )
+            ),
         ) {
             Text(
                 text = "Sign Up",
                 color = MaterialTheme.colorScheme.onPrimary,
-
             )
         }
     }

@@ -16,6 +16,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.mahmoud.tajaarandroid.presentation.authentication.GetStartedScreen
 import com.mahmoud.tajaarandroid.presentation.details.DetailScreen
 import com.mahmoud.tajaarandroid.presentation.filter.FilterSettingsScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
@@ -46,7 +47,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     containerColor = Color.White
                 ) { innerPadding ->
-                    NavHost(navController = navController, startDestination = GET_STARTED) {
+                    NavHost(navController = navController, startDestination = SPLASH) {
                         composable(
                             SPLASH,
                             enterTransition = {
@@ -136,13 +137,26 @@ class MainActivity : ComponentActivity() {
                         ) {
                             OnBoardingStepThree(
                                 viewModel = viewModel,
-                                onNavigate = {}
+                                onNavigate = {
+                                    navController.navigate(GET_STARTED) {
+                                        popUpTo(ONBOARDING_STEP_1) {
+                                            inclusive = true
+                                        }
+                                    }
+                                }
                             )
                         }
                         composable(
                             route = GET_STARTED,
                         ) {
-                            SavedCategoriesScreen()
+                            GetStartedScreen(
+                                onLogin = {
+
+                                },
+                                onSignUp =  {
+
+                                }
+                            )
                         }
                     }
                 }
