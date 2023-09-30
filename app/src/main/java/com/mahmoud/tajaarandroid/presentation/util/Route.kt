@@ -2,6 +2,8 @@ package com.mahmoud.tajaarandroid.presentation.util
 
 object Route {
 
+
+
     // Onboarding graph
     const val ONBOARDING_GRAPH = "onboarding"
     const val SPLASH = "Splash"
@@ -10,7 +12,7 @@ object Route {
     const val ONBOARDING_STEP_3 = "Onboarding3"
 
     // Authentication graph
-    const val AUTH = "auth"
+    const val AUTH_GRAPH = "auth"
     const val GET_STARTED = "GetStarted"
     const val LOGIN = "login"
     const val SIGN_UP = "signup"
@@ -19,6 +21,7 @@ object Route {
     const val VERIFICATION_CODE = "verification"
 
     // Main graph.
+    const val HOME_GRAPH = "HOME_GRAPH"
     const val HOME = "home"
     const val FILTER = "filter"
     const val SEARCH = "search"

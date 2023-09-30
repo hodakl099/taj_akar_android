@@ -1,6 +1,7 @@
 package com.mahmoud.tajaarandroid.presentation.authentication
 
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,7 +13,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Divider
@@ -35,11 +39,13 @@ import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.authentication.components.CustomTextField
 import com.mahmoud.tajaarandroid.presentation.authentication.components.LoginButton
+import com.mahmoud.tajaarandroid.ui.theme.BlueLotus
 
 
 @Composable
 fun LoginScreen(
-    modifier : Modifier = Modifier
+    modifier : Modifier = Modifier,
+    onLogin : () -> Unit
 ) {
     var dummyText by remember {
         mutableStateOf(TextFieldValue(""))
@@ -117,28 +123,28 @@ fun LoginScreen(
                 color = Color.Black.copy(0.6f)
             )
         }
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 38.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-                Divider(
-                    modifier = Modifier.width(138.dp),
-                    thickness = 1.dp,
-                    color = Color.Black.copy(0.1f)
-                )
-            Text(
-                text = "OR",
-                fontSize = 10.sp
-            )
-                Divider(
-                    modifier = Modifier.width(138.dp),
-                    thickness = 1.dp,
-                    color = Color.Black.copy(0.1f)
-                )
-        }
+//        Row(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(top = 38.dp),
+//            verticalAlignment = Alignment.CenterVertically,
+//            horizontalArrangement = Arrangement.SpaceEvenly
+//        ) {
+//                Divider(
+//                    modifier = Modifier.width(138.dp),
+//                    thickness = 1.dp,
+//                    color = Color.Black.copy(0.1f)
+//                )
+//            Text(
+//                text = "OR",
+//                fontSize = 10.sp
+//            )
+//                Divider(
+//                    modifier = Modifier.width(138.dp),
+//                    thickness = 1.dp,
+//                    color = Color.Black.copy(0.1f)
+//                )
+//        }
         Spacer(modifier = Modifier.height(32.dp))
         LoginButton(
             resId = R.drawable.google,
@@ -149,6 +155,26 @@ fun LoginScreen(
             resId = R.drawable.facebook,
             buttonText = "Facebook"
         )
+        Spacer(modifier = Modifier.height(8.dp))
+        Button(
+            modifier = Modifier
+                .width(327.dp)
+                .height(54.dp),
+            onClick = onLogin,
+            shape = RoundedCornerShape(14.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor =  MaterialTheme.colorScheme.onSecondary
+            ),
+            border = BorderStroke(
+                width = 1.dp,
+                color = BlueLotus.copy(0.2f)
+            ),
+        ) {
+            Text(
+                text = "Login",
+                color = MaterialTheme.colorScheme.onPrimary,
+            )
+        }
         Spacer(modifier = Modifier.height(16.dp))
         Row (
             verticalAlignment = Alignment.CenterVertically

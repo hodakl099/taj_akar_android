@@ -28,7 +28,8 @@ import com.mahmoud.tajaarandroid.presentation.authentication.components.PaymentB
 
 @Composable
 fun PaymentMethodScreen(
-    modifier : Modifier = Modifier
+    modifier : Modifier = Modifier,
+    onNextClick : () -> Unit
 ) {
     Box(
         modifier = modifier
@@ -120,7 +121,8 @@ fun PaymentMethodScreen(
                 .padding(bottom = 16.dp),
             textButton = "Next",
             containerColor = MaterialTheme.colorScheme.onPrimary,
-            textColor = MaterialTheme.colorScheme.onSecondary
+            textColor = MaterialTheme.colorScheme.onSecondary,
+            onClick = onNextClick
         )
     }
 }

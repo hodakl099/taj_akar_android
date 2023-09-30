@@ -3,33 +3,15 @@ package com.mahmoud.tajaarandroid
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.mahmoud.tajaarandroid.presentation.authentication.GetStartedScreen
-import com.mahmoud.tajaarandroid.presentation.details.DetailScreen
-import com.mahmoud.tajaarandroid.presentation.filter.FilterSettingsScreen
-import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
-import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
-import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
+import com.mahmoud.tajaarandroid.navigation_graph.AppNavigator
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingViewModel
-import com.mahmoud.tajaarandroid.presentation.saved.SavedCategoriesScreen
-import com.mahmoud.tajaarandroid.presentation.splash.SplashScreen
-import com.mahmoud.tajaarandroid.presentation.util.Route.GET_STARTED
-import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_1
-import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_2
-import com.mahmoud.tajaarandroid.presentation.util.Route.ONBOARDING_STEP_3
-import com.mahmoud.tajaarandroid.presentation.util.Route.SPLASH
 import com.mahmoud.tajaarandroid.ui.theme.TajAarAndroidTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,128 +22,20 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val viewModel = hiltViewModel<OnBoardingViewModel>()
-            val navController = rememberNavController()
+            val onBoardingViewModel = hiltViewModel<OnBoardingViewModel>()
             TajAarAndroidTheme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     containerColor = Color.White
                 ) { innerPadding ->
-                    NavHost(navController = navController, startDestination = SPLASH) {
-                        composable(
-                            SPLASH,
-                            enterTransition = {
-                                slideIntoContainer(
-                                    AnimatedContentTransitionScope.SlideDirection.Left,
-                                    animationSpec = tween(700)
-                                )
-                            },
-                            exitTransition = {
-                                slideOutOfContainer(
-                                    AnimatedContentTransitionScope.SlideDirection.Right,
-                                    animationSpec = tween(700)
-                                )
-                            }
-                        ) {
-                            SplashScreen(
-                                modifier = Modifier.padding(innerPadding),
-                                onNavigate = {
-                                    navController.navigate(ONBOARDING_STEP_1) {
-                                        popUpTo(SPLASH) {
-                                            inclusive = true
-                                        }
-                                    }
-                                }
-                            )
-                        }
-                        composable(
-                            route = ONBOARDING_STEP_1,
-                            enterTransition = {
-                                slideIntoContainer(
-                                    AnimatedContentTransitionScope.SlideDirection.Left,
-                                    animationSpec = tween(700)
-                                )
-                            },
-                            exitTransition = {
-                                slideOutOfContainer(
-                                    AnimatedContentTransitionScope.SlideDirection.Right,
-                                    animationSpec = tween(700)
-                                )
-                            }
-                        ) {
-                            OnBoardingStepOne(
-                                onNavigate = {
-                                    viewModel.nextStep()
-                                    navController.navigate(ONBOARDING_STEP_2)
-                                },
-                                viewModel = viewModel
-                            )
-                        }
-                        composable(
-                            route = ONBOARDING_STEP_2,
-                            enterTransition = {
-                                slideIntoContainer(
-                                    AnimatedContentTransitionScope.SlideDirection.Left,
-                                    animationSpec = tween(700)
-                                )
-                            },
-                            exitTransition = {
-                                slideOutOfContainer(
-                                    AnimatedContentTransitionScope.SlideDirection.Right,
-                                    animationSpec = tween(700)
-                                )
-                            }
-                        ) {
-                            OnBoardingStepTwo(
-                                viewModel = viewModel,
-                                onNavigate = {
-                                    viewModel.nextStep()
-                                    navController.navigate(ONBOARDING_STEP_3)
-                                }
-                            )
-                        }
-                        composable(
-                            route = ONBOARDING_STEP_3,
-                            enterTransition = {
-                                slideIntoContainer(
-                                    AnimatedContentTransitionScope.SlideDirection.Left,
-                                    animationSpec = tween(500)
-                                )
-                            },
-                            exitTransition = {
-                                slideOutOfContainer(
-                                    AnimatedContentTransitionScope.SlideDirection.Right,
-                                    animationSpec = tween(500)
-                                )
-                            }
-                        ) {
-                            OnBoardingStepThree(
-                                viewModel = viewModel,
-                                onNavigate = {
-                                    navController.navigate(GET_STARTED) {
-                                        popUpTo(ONBOARDING_STEP_1) {
-                                            inclusive = true
-                                        }
-                                    }
-                                }
-                            )
-                        }
-                        composable(
-                            route = GET_STARTED,
-                        ) {
-                            GetStartedScreen(
-                                onLogin = {
-
-                                },
-                                onSignUp =  {
-
-                                }
-                            )
-                        }
-                    }
+                    AppNavigator(
+                       onBoardingViewModel = onBoardingViewModel,
+                        innerPadding = innerPadding
+                    )
                 }
             }
         }
     }
 }
+
 

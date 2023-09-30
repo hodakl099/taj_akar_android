@@ -66,7 +66,7 @@ fun GetStartedScreen(
             text = "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit. Habitant",
             fontSize = 13.sp,
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         Button(
             modifier = Modifier
                 .width(327.dp)
