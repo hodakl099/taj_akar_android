@@ -54,7 +54,6 @@ fun HomeScreen(
     )
 
     Scaffold(
-        modifier = Modifier.navigationBarsPadding() ,
         bottomBar = {
             BottomNavigation(
                 backgroundColor = Color.White
@@ -86,8 +85,8 @@ fun HomeScreen(
             }
         }
     ) { innerPadding ->
-        BaseScreen(
-            modifier = modifier.navigationBarsPadding().padding(innerPadding),
+                BaseScreen(
+            modifier = modifier.padding(innerPadding),
             headerContent = {
                 HomeHeader(
                     modifier = Modifier.padding(bottom = 20.dp),

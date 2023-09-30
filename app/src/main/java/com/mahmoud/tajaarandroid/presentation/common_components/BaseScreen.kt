@@ -24,7 +24,7 @@ fun BaseScreen(
     headerModifier : Modifier = Modifier
 ) {
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         LazyColumn(
             modifier = Modifier
