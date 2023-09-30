@@ -1,6 +1,7 @@
 package com.mahmoud.tajaarandroid.presentation.home.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -35,16 +36,17 @@ import com.mahmoud.tajaarandroid.ui.theme.BlueLotus
 @Composable
 fun CategoryItem(
     modifier : Modifier = Modifier,
-    category : CategoryData
+    category : CategoryData,
+    onClick : () -> Unit = {}
 ) {
 
     //TODO() remove the format to the viewmodel..
     var value =
         String.format("$%.2f", category.price)
     Column(
-        modifier = modifier.padding(bottom = 12.dp),
+        modifier = modifier.padding(bottom = 12.dp).clickable { onClick() },
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment =Alignment.Start
+        horizontalAlignment =Alignment.Start,
     ) {
         Image(
             modifier = Modifier

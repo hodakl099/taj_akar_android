@@ -27,6 +27,6 @@ object Route {
     const val SEARCH = "search"
     const val DETAILS = "details"
     const val BUY_HOUSE = "buyHouse"
-    const val SAVE_HOME = "saveHome"
     const val CHAT = "chat"
+    const val SAVED = "SAVED"
 }

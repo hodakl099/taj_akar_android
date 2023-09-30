@@ -2,14 +2,13 @@ package com.mahmoud.tajaarandroid.presentation.home
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.BottomNavigation
@@ -29,6 +28,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.common_components.BaseScreen
@@ -43,49 +43,10 @@ import com.mahmoud.tajaarandroid.presentation.util.chunkedCategories
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    homeNavController : NavController
+    innerPadding : PaddingValues,
+    navController: NavHostController
 ) {
-
-    val items = listOf(
-        BottomNavItem.Home,
-        BottomNavItem.Search,
-        BottomNavItem.Saved,
-        BottomNavItem.Chat
-    )
-
-    Scaffold(
-        bottomBar = {
-            BottomNavigation(
-                backgroundColor = Color.White
-            ){
-                val navBackStackEntry by homeNavController.currentBackStackEntryAsState()
-                val currentDestination = navBackStackEntry?.destination?.route
-                items.forEach { screen ->
-                    BottomNavigationItem(
-                        selected = currentDestination == screen.route,
-                        onClick = {
-                                  if(currentDestination != screen.route) {
-                                      homeNavController.navigate(screen.route) {
-                                          popUpTo(homeNavController.graph.startDestinationId) {
-                                              saveState = true
-                                          }
-                                          launchSingleTop = true
-                                          restoreState = true
-                                      }
-                                  }
-                        },
-                        icon = {
-                           Icon(
-                               painter = painterResource(id = screen.icon),
-                               contentDescription = null
-                           )
-                        }
-                    )
-                }
-            }
-        }
-    ) { innerPadding ->
-                BaseScreen(
+        BaseScreen(
             modifier = modifier.padding(innerPadding),
             headerContent = {
                 HomeHeader(
@@ -177,7 +138,10 @@ fun HomeScreen(
                         pair.forEach { category ->
                             CategoryItem(
                                 modifier = Modifier.weight(1f),
-                                category = category
+                                category = category,
+                                onClick = {
+                                    navController.navigate(Route.FILTER)
+                                }
                             )
                             if (pair.size < 2) {
                                 Box(modifier = Modifier.weight(1f))
@@ -187,13 +151,5 @@ fun HomeScreen(
                 }
             }
         )
-    }
 }
 
-sealed class BottomNavItem(val route: String, @DrawableRes val icon: Int) {
-    object Home : BottomNavItem(route = Route.HOME,icon =  R.drawable.home)
-    object Search : BottomNavItem(route = Route.SEARCH,icon =  R.drawable.search)
-    object Saved : BottomNavItem(route = Route.SAVE_HOME,icon =  R.drawable.saved)
-    object Chat: BottomNavItem(route = Route.CHAT,icon =  R.drawable.messages)
-
-}

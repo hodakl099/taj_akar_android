@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "TajAarAndroid"
+rootProject.name = "AKAR"
 include(":app")

@@ -14,7 +14,7 @@ import com.mahmoud.tajaarandroid.presentation.authentication.GetStartedScreen
 import com.mahmoud.tajaarandroid.presentation.authentication.LoginScreen
 import com.mahmoud.tajaarandroid.presentation.authentication.PaymentMethodScreen
 import com.mahmoud.tajaarandroid.presentation.authentication.SignupScreen
-import com.mahmoud.tajaarandroid.presentation.home.HomeScreen
+import com.mahmoud.tajaarandroid.presentation.filter.FilterSettingsScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepOne
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepThree
 import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingStepTwo
@@ -22,6 +22,7 @@ import com.mahmoud.tajaarandroid.presentation.onboarding.OnBoardingViewModel
 import com.mahmoud.tajaarandroid.presentation.splash.SplashScreen
 import com.mahmoud.tajaarandroid.presentation.util.Route
 import com.mahmoud.tajaarandroid.presentation.util.Route.AUTH_GRAPH
+import com.mahmoud.tajaarandroid.presentation.util.Route.FILTER
 import com.mahmoud.tajaarandroid.presentation.util.Route.GET_STARTED
 import com.mahmoud.tajaarandroid.presentation.util.Route.HOME
 import com.mahmoud.tajaarandroid.presentation.util.Route.HOME_GRAPH
@@ -35,7 +36,7 @@ fun AppNavigator(
     onBoardingViewModel: OnBoardingViewModel
 ) {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = HOME_GRAPH) {
+    NavHost(navController = navController, startDestination = ONBOARDING_GRAPH) {
         navigation( route =ONBOARDING_GRAPH, startDestination = SPLASH ) {
                 composable(
                     Route.SPLASH,
@@ -229,9 +230,24 @@ fun AppNavigator(
         }
 
         navigation(startDestination = HOME,route = HOME_GRAPH) {
-            composable(HOME) {
-                HomeScreen(homeNavController = navController)
+            composable(
+               route = HOME,
+                enterTransition = {
+                    slideIntoContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Right,
+                        animationSpec = tween(500)
+                    )
+                },
+                exitTransition = {
+                    slideOutOfContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Left,
+                        animationSpec = tween(500)
+                    )
+                }
+            ) {
+                HomeGraph()
             }
+
         }
     }
 }
