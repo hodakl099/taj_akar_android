@@ -230,7 +230,7 @@ fun AppNavigator(
 
         navigation(startDestination = HOME,route = HOME_GRAPH) {
             composable(HOME) {
-                HomeScreen()
+                HomeScreen(homeNavController = navController)
             }
         }
     }

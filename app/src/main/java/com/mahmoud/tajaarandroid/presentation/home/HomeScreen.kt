@@ -2,12 +2,14 @@ package com.mahmoud.tajaarandroid.presentation.home
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.BottomNavigation
@@ -33,6 +35,7 @@ import com.mahmoud.tajaarandroid.presentation.common_components.BaseScreen
 import com.mahmoud.tajaarandroid.presentation.home.components.Category
 import com.mahmoud.tajaarandroid.presentation.home.components.CategoryItem
 import com.mahmoud.tajaarandroid.presentation.home.components.HomeHeader
+import com.mahmoud.tajaarandroid.presentation.util.Route
 import com.mahmoud.tajaarandroid.presentation.util.chunkedCategories
 
 
@@ -44,30 +47,47 @@ fun HomeScreen(
 ) {
 
     val items = listOf(
-        "tab1",
-        "tab2",
-        "tab3",
-        "tab4"
+        BottomNavItem.Home,
+        BottomNavItem.Search,
+        BottomNavItem.Saved,
+        BottomNavItem.Chat
     )
 
     Scaffold(
+        modifier = Modifier.navigationBarsPadding() ,
         bottomBar = {
-
-            BottomNavigation {
+            BottomNavigation(
+                backgroundColor = Color.White
+            ){
                 val navBackStackEntry by homeNavController.currentBackStackEntryAsState()
                 val currentDestination = navBackStackEntry?.destination?.route
                 items.forEach { screen ->
                     BottomNavigationItem(
-                        selected = currentDestination == screen,
-                        onClick = { /*TODO*/ },
-                        icon = { /*TODO*/ }
+                        selected = currentDestination == screen.route,
+                        onClick = {
+                                  if(currentDestination != screen.route) {
+                                      homeNavController.navigate(screen.route) {
+                                          popUpTo(homeNavController.graph.startDestinationId) {
+                                              saveState = true
+                                          }
+                                          launchSingleTop = true
+                                          restoreState = true
+                                      }
+                                  }
+                        },
+                        icon = {
+                           Icon(
+                               painter = painterResource(id = screen.icon),
+                               contentDescription = null
+                           )
+                        }
                     )
                 }
             }
         }
     ) { innerPadding ->
         BaseScreen(
-            modifier = modifier.padding(innerPadding),
+            modifier = modifier.navigationBarsPadding().padding(innerPadding),
             headerContent = {
                 HomeHeader(
                     modifier = Modifier.padding(bottom = 20.dp),
@@ -172,9 +192,9 @@ fun HomeScreen(
 }
 
 sealed class BottomNavItem(val route: String, @DrawableRes val icon: Int) {
-    object Tab1 : BottomNavItem("tab1", R.drawable.urban)
-    object Tab2 : BottomNavItem("tab2", R.drawable.call_call)
-    object Tab3 : BottomNavItem("tab3", R.drawable.locationcall)
-    object Tab4: BottomNavItem("tab4", R.drawable.maximize)
+    object Home : BottomNavItem(route = Route.HOME,icon =  R.drawable.home)
+    object Search : BottomNavItem(route = Route.SEARCH,icon =  R.drawable.search)
+    object Saved : BottomNavItem(route = Route.SAVE_HOME,icon =  R.drawable.saved)
+    object Chat: BottomNavItem(route = Route.CHAT,icon =  R.drawable.messages)
 
 }
