@@ -20,6 +20,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mahmoud.tajaarandroid.ui.theme.TextColor
+import com.mahmoud.tajaarandroid.ui.theme.cloud
 
 @Composable
 fun DescriptionCard(
@@ -31,7 +33,7 @@ fun DescriptionCard(
         modifier = modifier
             .padding(top = 8.dp)
             .clip(RoundedCornerShape(10.dp))
-            .background(Color(0xffC4C4C4).copy(0.1f))
+            .background(cloud.copy(0.1f))
     ) {
         Row(
             modifier = Modifier
@@ -52,7 +54,7 @@ fun DescriptionCard(
                 style = TextStyle(
                     fontSize = 14.sp,
                     fontWeight = FontWeight.W700,
-                    color = Color(0xff303030).copy(0.8f)
+                    color = TextColor.copy(0.8f)
                 )
             )
         }

@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
+import com.mahmoud.tajaarandroid.ui.theme.fadedOrange
 
 @Composable
 fun RatingComponent(
@@ -28,7 +29,7 @@ fun RatingComponent(
         modifier = modifier
             .clip(RoundedCornerShape(13.dp))
             .background(
-                Color(0xffF2994A).copy(0.1f)
+                fadedOrange.copy(0.1f)
             )
     ) {
         Row(
@@ -45,7 +46,7 @@ fun RatingComponent(
                 style = TextStyle(
                     fontSize = 13.sp,
                     fontWeight = FontWeight.W700,
-                    color = Color(0xffF2994A)
+                    color = fadedOrange
                 )
             )
         }

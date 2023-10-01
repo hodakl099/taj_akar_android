@@ -37,6 +37,8 @@ import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.authentication.components.ActionButton
 import com.mahmoud.tajaarandroid.presentation.authentication.components.CustomTextField
+import com.mahmoud.tajaarandroid.ui.theme.TextColor
+import com.mahmoud.tajaarandroid.ui.theme.snowDrift
 
 @Composable
 fun ForgotPasswordScreen(
@@ -65,7 +67,7 @@ fun ForgotPasswordScreen(
                         shape = RoundedCornerShape(10.dp)
                     ),
                 colors = IconButtonDefaults.iconButtonColors(
-                    containerColor = Color(0xFFF9F9F9)
+                    containerColor = snowDrift
                 ),
                 onClick = { /*TODO*/ }
             ) {
@@ -95,7 +97,7 @@ fun ForgotPasswordScreen(
                     textAlign = TextAlign.Start,
                     lineHeight = 46.sp
                 ),
-                color = Color.Black.copy(0.8f)
+                color = TextColor.copy(0.8f)
             )
             Text(
                 modifier = Modifier
@@ -104,7 +106,7 @@ fun ForgotPasswordScreen(
                 text = "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit. Habitant",
                 fontSize = 13.sp,
                 fontWeight = FontWeight.W400,
-                color = Color.Black.copy(0.8f)
+                color = TextColor.copy(0.8f)
             )
             CustomTextField(
                 modifier = Modifier.padding(top = 16.dp),

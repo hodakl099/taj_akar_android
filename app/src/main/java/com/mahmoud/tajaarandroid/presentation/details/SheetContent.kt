@@ -28,6 +28,7 @@ import com.mahmoud.tajaarandroid.presentation.details.components.CustomSheetRow
 import com.mahmoud.tajaarandroid.presentation.details.components.RatingComponent
 import com.mahmoud.tajaarandroid.presentation.filter.components.CustomDivider
 import com.mahmoud.tajaarandroid.ui.theme.BlueLotus
+import com.mahmoud.tajaarandroid.ui.theme.TextColor
 import kotlinx.coroutines.launch
 
 @Composable
@@ -50,7 +51,7 @@ fun DetailSheetContent(
                         style = TextStyle(
                             fontSize = 24.sp,
                             fontWeight = FontWeight.W700,
-                            color = Color(0xff303030).copy(0.8f),
+                            color = TextColor.copy(0.8f),
                             letterSpacing = 0.48.sp
                         )
                     )

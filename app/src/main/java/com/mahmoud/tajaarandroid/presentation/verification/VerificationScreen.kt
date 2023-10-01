@@ -52,6 +52,8 @@ import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.authentication.components.ActionButton
 import com.mahmoud.tajaarandroid.presentation.authentication.components.CustomTextField
 import com.mahmoud.tajaarandroid.presentation.verification.components.VerificationInputFiled
+import com.mahmoud.tajaarandroid.ui.theme.TextColor
+import com.mahmoud.tajaarandroid.ui.theme.snowDrift
 
 @Composable
 fun VerificationScreen(
@@ -79,7 +81,7 @@ fun VerificationScreen(
                         shape = RoundedCornerShape(10.dp)
                     ),
                 colors = IconButtonDefaults.iconButtonColors(
-                    containerColor = Color(0xFFF9F9F9)
+                    containerColor = snowDrift
                 ),
                 onClick = { /*TODO*/ }
             ) {
@@ -118,7 +120,7 @@ fun VerificationScreen(
                 text = "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit. Habitant",
                 fontSize = 13.sp,
                 fontWeight = FontWeight.W400,
-                color = Color.Black.copy(0.8f)
+                color = TextColor.copy(0.8f)
             )
             VerificationInputFiled(
               focusRequesters = focusRequesters,

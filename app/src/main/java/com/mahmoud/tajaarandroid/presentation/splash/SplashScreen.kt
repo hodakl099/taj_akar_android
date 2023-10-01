@@ -13,7 +13,6 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(
-    modifier: Modifier = Modifier,
     onNavigate : () -> Unit
 ) {
     LaunchedEffect(key1 = true) {

@@ -38,7 +38,7 @@ fun CustomTextField(
         modifier = modifier
             .width(327.dp)
             .height(59.dp)
-            .background(Color(0xFFF9F9F9), RoundedCornerShape(14.dp))
+            .background(MaterialTheme.colorScheme.background, RoundedCornerShape(14.dp))
             .fillMaxHeight()
             .wrapContentHeight(Alignment.CenterVertically),
         value = value,

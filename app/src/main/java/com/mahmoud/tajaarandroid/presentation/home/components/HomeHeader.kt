@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
+import com.mahmoud.tajaarandroid.ui.theme.snowDrift
 
 
 @Composable
@@ -42,7 +43,7 @@ fun HomeHeader(
                 .width(174.dp)
                 .height(44.dp)
                 .background(
-                    color = Color(0xffF9F9F9),
+                    color = snowDrift,
                     shape = RoundedCornerShape(10.dp)
                 )
                 .padding(8.dp),

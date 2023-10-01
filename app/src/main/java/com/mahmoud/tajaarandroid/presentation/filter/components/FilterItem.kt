@@ -13,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.ui.theme.BlueLotus
+import com.mahmoud.tajaarandroid.ui.theme.TextColor
 
 
 @Composable
@@ -35,7 +36,7 @@ fun FilterItem(
             text = itemText,
             fontSize = 12.sp,
             fontWeight = FontWeight.W700,
-            color = if (isSelected) MaterialTheme.colorScheme.onSecondary else Color(0xff303030).copy(0.8f)
+            color = if (isSelected) MaterialTheme.colorScheme.onSecondary else TextColor.copy(0.8f)
         )
     }
 }

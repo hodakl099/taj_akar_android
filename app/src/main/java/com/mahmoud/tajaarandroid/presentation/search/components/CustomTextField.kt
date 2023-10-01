@@ -21,6 +21,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mahmoud.tajaarandroid.ui.theme.TextColor
+import com.mahmoud.tajaarandroid.ui.theme.snowDrift
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -35,14 +37,14 @@ fun CustomTextField(
             .fillMaxWidth()
             .padding(16.dp)
             .clip(RoundedCornerShape(14.dp))
-            .background(Color(0xffF9F9F9)),
+            .background(snowDrift),
     ) {
         if (value.isEmpty()) {
             Text(
                 modifier = Modifier.padding(21.dp),
                 text = "Search...",
                 style = TextStyle(
-                    color = Color(0xff303030).copy(0.6f),
+                    color = TextColor.copy(0.6f),
                     fontWeight = FontWeight.W400,
                     fontSize = 14.sp,
                 )

@@ -10,6 +10,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mahmoud.tajaarandroid.ui.theme.TextColor
 
 @Composable
 fun CustomText(
@@ -23,7 +24,7 @@ fun CustomText(
         style = TextStyle(
             fontSize = textUnit,
             fontWeight = FontWeight.W700,
-            color = Color(0xff303030).copy(0.8f)
+            color = TextColor.copy(0.8f)
         )
     )
 }

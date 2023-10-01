@@ -22,6 +22,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.mahmoud.tajaarandroid.R
+import com.mahmoud.tajaarandroid.ui.theme.snowDrift
+import com.mahmoud.tajaarandroid.ui.theme.valentineRed
 import kotlinx.coroutines.launch
 
 @Composable
@@ -48,9 +50,9 @@ fun SearchHeader(
                 .clip(RoundedCornerShape(14.dp))
                 .background(
                     if (value.isNotEmpty())
-                        Color(0xffEB5757).copy(0.1f)
+                      valentineRed.copy(0.1f)
                     else
-                        Color(0xffF9F9F9)
+                       snowDrift
                 ),
             contentAlignment = Alignment.Center
         ) {

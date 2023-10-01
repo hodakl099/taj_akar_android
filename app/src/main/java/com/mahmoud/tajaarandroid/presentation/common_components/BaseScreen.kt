@@ -34,7 +34,7 @@ fun BaseScreen(
         )
         Box(modifier = Modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.background)
+            .background(Color.White)
         ) {
             Column(
                 modifier = headerModifier

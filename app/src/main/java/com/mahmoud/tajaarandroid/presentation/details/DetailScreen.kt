@@ -43,6 +43,8 @@ import com.mahmoud.tajaarandroid.presentation.details.components.DetailCustomTex
 import com.mahmoud.tajaarandroid.presentation.details.components.DetailsHeader
 import com.mahmoud.tajaarandroid.presentation.details.components.RatingComponent
 import com.mahmoud.tajaarandroid.presentation.details.components.UtilityCard
+import com.mahmoud.tajaarandroid.ui.theme.cloud
+import com.mahmoud.tajaarandroid.ui.theme.paleTeal
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -131,7 +133,7 @@ fun DetailScreen() {
             },
             sheetState = state,
             sheetShape = RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp),
-            scrimColor = Color(0xFFC4C4C4).copy(0.3f)
+            scrimColor = cloud.copy(0.3f)
         ) {
             BaseScreen(
                 headerContent = {
@@ -192,7 +194,7 @@ fun DetailScreen() {
                                 )
                                 CustomActionIcon(
                                     iconRes = R.drawable.call_call,
-                                    backgroundColor = Color(0xff6FCF97).copy(0.1f),
+                                    backgroundColor = paleTeal.copy(0.1f),
                                     hasWhiteBackground = true
                                 )
                             }

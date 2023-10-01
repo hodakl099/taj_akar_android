@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,10 +33,10 @@ fun CustomActionIcon(
             .clip(RoundedCornerShape(10.dp))
             .border(
                 width = if (hasBorder) 1.dp else 0.dp,
-                color = Color(0xFFF9F9F9),
+                color = MaterialTheme.colorScheme.background,
                 shape = RoundedCornerShape(10.dp)
             )
-            .background(if (hasWhiteBackground) backgroundColor  else Color(0xFFF9F9F9) )
+            .background(if (hasWhiteBackground) backgroundColor  else MaterialTheme.colorScheme.background )
     ) {
         IconButton(
             modifier = Modifier

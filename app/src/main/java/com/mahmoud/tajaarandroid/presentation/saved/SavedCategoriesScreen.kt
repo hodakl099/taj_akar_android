@@ -2,6 +2,7 @@ package com.mahmoud.tajaarandroid.presentation.saved
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,8 +19,9 @@ import com.mahmoud.tajaarandroid.presentation.saved.components.SavedHeader
 import com.mahmoud.tajaarandroid.presentation.util.chunkedCategories
 
 @Composable
-fun SavedCategoriesScreen() {
+fun SavedCategoriesScreen(innerPadding : PaddingValues) {
     BaseScreen(
+        modifier = Modifier.padding(innerPadding),
         headerContent = {
             SavedHeader(
                 modifier = Modifier.padding(bottom = 24.dp),

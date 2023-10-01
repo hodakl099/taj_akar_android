@@ -17,8 +17,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -27,7 +25,6 @@ import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.presentation.home.HomeScreen
 import com.mahmoud.tajaarandroid.presentation.saved.SavedCategoriesScreen
 import com.mahmoud.tajaarandroid.presentation.search.SearchScreen
-import com.mahmoud.tajaarandroid.presentation.util.Route
 import com.mahmoud.tajaarandroid.presentation.util.Route.CHAT
 import com.mahmoud.tajaarandroid.presentation.util.Route.HOME
 import com.mahmoud.tajaarandroid.presentation.util.Route.SAVED
@@ -109,7 +106,7 @@ fun HomeGraph() {
                     )
                 }
             ) {
-                SearchScreen()
+                SearchScreen(innerPadding = innerPadding)
             }
             composable(
                 route = SAVED,
@@ -126,7 +123,9 @@ fun HomeGraph() {
                     )
                 }
             ) {
-                SavedCategoriesScreen()
+                SavedCategoriesScreen(
+                    innerPadding = innerPadding
+                )
             }
             composable(
                 route = CHAT,

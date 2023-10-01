@@ -11,6 +11,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mahmoud.tajaarandroid.ui.theme.TextColor
 
 @Composable
 fun MinMaxButton(
@@ -27,7 +28,7 @@ fun MinMaxButton(
         Text(
             text = buttonText,
             style = TextStyle(
-                color = Color(0xff303030).copy(0.4f),
+                color = TextColor.copy(0.4f),
                 fontSize = 14.sp,
                 fontWeight = FontWeight.W700
             )

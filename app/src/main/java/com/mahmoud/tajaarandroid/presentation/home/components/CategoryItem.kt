@@ -32,6 +32,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.ui.theme.BlueLotus
+import com.mahmoud.tajaarandroid.ui.theme.TextColor
+import com.mahmoud.tajaarandroid.ui.theme.fadedOrange
+import com.mahmoud.tajaarandroid.ui.theme.valentineRed
 
 @Composable
 fun CategoryItem(
@@ -80,7 +83,7 @@ fun CategoryItem(
             style = TextStyle(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.W700,
-                color = Color(0xff303030).copy(0.8f)
+                color = TextColor.copy(0.8f)
             )
         )
         Spacer(modifier = Modifier.height(8.dp))
@@ -89,7 +92,7 @@ fun CategoryItem(
             style = TextStyle(
                 fontSize = 9.sp,
                 fontWeight = FontWeight.W400,
-                color = Color(0xff303030).copy(0.6f)
+                color = TextColor.copy(0.6f)
             )
         )
         Spacer(modifier = Modifier.height(8.dp))
@@ -103,7 +106,7 @@ fun CategoryItem(
                 style = TextStyle(
                     fontSize = 14.sp,
                     fontWeight = FontWeight.W800,
-                    color = Color(0xffEB5757).copy(0.8f)
+                    color = valentineRed.copy(0.8f)
                 )
             )
             Row{
@@ -117,7 +120,7 @@ fun CategoryItem(
                     style = TextStyle(
                         fontSize = 10.sp,
                         fontWeight = FontWeight.W700,
-                        color = Color(0xffF2994A).copy(0.2f)
+                        color = fadedOrange.copy(0.2f)
                     )
                 )
             }

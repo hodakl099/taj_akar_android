@@ -17,7 +17,6 @@ fun DescriptionText(paragraph: String) {
             color = Color.Black.copy(0.6f),
             textAlign = TextAlign.Justify,
             fontSize = 16.sp,
-
             )
     )
 }

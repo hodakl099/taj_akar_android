@@ -5,6 +5,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,7 +32,9 @@ import com.mahmoud.tajaarandroid.presentation.util.IconState
 import com.mahmoud.tajaarandroid.presentation.util.chunkedCategories
 
 @Composable
-fun SearchScreen() {
+fun SearchScreen(
+    innerPadding : PaddingValues
+) {
     var searchText by remember {
         mutableStateOf("")
     }
@@ -48,6 +51,7 @@ fun SearchScreen() {
     )
 
     BaseScreen(
+        modifier = Modifier.padding(innerPadding),
         headerContent = {
                 SearchHeader(
                     modifier = Modifier.padding(top = 32.dp, start = 24.dp, end = 24.dp),
@@ -135,14 +139,4 @@ fun SearchScreen() {
             }
         }
     )
-//    Box(modifier = Modifier.fillMaxSize()) {
-//        LazyColumn(
-//            modifier = modifier
-//                .fillMaxSize()
-//                .padding(horizontal = 24.dp)
-//        ) {
-//
-//
-//        }
-//    }
 }

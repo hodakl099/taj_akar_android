@@ -44,8 +44,8 @@ import com.mahmoud.tajaarandroid.ui.theme.BlueLotus
 
 @Composable
 fun LoginScreen(
-    modifier : Modifier = Modifier,
-    onLogin : () -> Unit
+    modifier: Modifier = Modifier,
+    onLogin: () -> Unit
 ) {
     var dummyText by remember {
         mutableStateOf(TextFieldValue(""))
@@ -65,7 +65,8 @@ fun LoginScreen(
                 .width(326.dp)
                 .height(97.dp),
             painter = painterResource(
-            id = R.drawable.rectanglecrop),
+                id = R.drawable.rectanglecrop
+            ),
             contentDescription = null
         )
         Text(
@@ -86,7 +87,7 @@ fun LoginScreen(
         CustomTextField(
             modifier = Modifier.padding(top = 38.dp),
             value = dummyText,
-            onValueChange =  {
+            onValueChange = {
                 dummyText = it
             },
             resourceId = R.drawable.sms,
@@ -95,7 +96,7 @@ fun LoginScreen(
         CustomTextField(
             modifier = Modifier.padding(top = 8.dp),
             value = dummyText,
-            onValueChange =  {
+            onValueChange = {
                 dummyText = it
             },
             resourceId = R.drawable.lock,
@@ -110,7 +111,7 @@ fun LoginScreen(
                 modifier = Modifier.scale(0.6f),
                 checked = isChecked,
                 onCheckedChange = {
-                                  isChecked = it
+                    isChecked = it
                 },
                 colors = CheckboxDefaults.colors(
                     checkedColor = Color(0xff27AE60),
@@ -123,28 +124,6 @@ fun LoginScreen(
                 color = Color.Black.copy(0.6f)
             )
         }
-//        Row(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .padding(top = 38.dp),
-//            verticalAlignment = Alignment.CenterVertically,
-//            horizontalArrangement = Arrangement.SpaceEvenly
-//        ) {
-//                Divider(
-//                    modifier = Modifier.width(138.dp),
-//                    thickness = 1.dp,
-//                    color = Color.Black.copy(0.1f)
-//                )
-//            Text(
-//                text = "OR",
-//                fontSize = 10.sp
-//            )
-//                Divider(
-//                    modifier = Modifier.width(138.dp),
-//                    thickness = 1.dp,
-//                    color = Color.Black.copy(0.1f)
-//                )
-//        }
         Spacer(modifier = Modifier.height(32.dp))
         LoginButton(
             resId = R.drawable.google,
@@ -163,7 +142,7 @@ fun LoginScreen(
             onClick = onLogin,
             shape = RoundedCornerShape(14.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor =  MaterialTheme.colorScheme.onSecondary
+                containerColor = MaterialTheme.colorScheme.onSecondary
             ),
             border = BorderStroke(
                 width = 1.dp,
@@ -176,9 +155,9 @@ fun LoginScreen(
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Row (
+        Row(
             verticalAlignment = Alignment.CenterVertically
-        ){
+        ) {
             Text(
                 text = "Don’t have an account?",
                 fontSize = 12.sp,
