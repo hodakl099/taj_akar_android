@@ -13,7 +13,6 @@ val TextColor  = Color(0xff303030)
 val cloud  = Color(0xffC4C4C4)
 val fadedOrange  = Color(0xffF2994A)
 val paleTeal  = Color(0xff6FCF97)
-val valentineRed  = Color(0xffEB5757)
 val snowDrift  = Color(0xFFF9F9F9)
 
 

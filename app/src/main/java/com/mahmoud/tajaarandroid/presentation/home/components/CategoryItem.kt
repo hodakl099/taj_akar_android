@@ -33,8 +33,9 @@ import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
 import com.mahmoud.tajaarandroid.ui.theme.BlueLotus
 import com.mahmoud.tajaarandroid.ui.theme.TextColor
+import com.mahmoud.tajaarandroid.ui.theme.ValentineRed
 import com.mahmoud.tajaarandroid.ui.theme.fadedOrange
-import com.mahmoud.tajaarandroid.ui.theme.valentineRed
+
 
 @Composable
 fun CategoryItem(
@@ -106,7 +107,7 @@ fun CategoryItem(
                 style = TextStyle(
                     fontSize = 14.sp,
                     fontWeight = FontWeight.W800,
-                    color = valentineRed.copy(0.8f)
+                    color = ValentineRed.copy(0.8f)
                 )
             )
             Row{

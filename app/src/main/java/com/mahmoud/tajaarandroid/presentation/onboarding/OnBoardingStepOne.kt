@@ -25,6 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mahmoud.tajaarandroid.R
+import com.mahmoud.tajaarandroid.presentation.onboarding.components.BoardingBaseScreen
 import com.mahmoud.tajaarandroid.presentation.onboarding.components.StepIndicator
 
 
@@ -34,56 +35,12 @@ fun OnBoardingStepOne(
     onNavigate : () -> Unit,
     viewModel : OnBoardingViewModel
 ) {
+
     viewModel.onStepChange(0)
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .padding(top = 42.dp, end = 16.dp)
-    ) {
-        Text(
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .clickable { onNavigate() },
-            text = "Skip",
-            color = MaterialTheme.colorScheme.onPrimary
-        )
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceEvenly
-        ) {
-            Image(
-                modifier = Modifier.size(275.dp),
-                painter = painterResource(id = R.drawable.ellipse1),
-                contentDescription = null,
-            )
-            Text(
-                modifier = Modifier.padding(horizontal = 71.dp),
-                text = "Our reputation is as solid as concrete.",
-                fontWeight = FontWeight.Bold,
-                style = TextStyle(
-                    fontSize = 28.sp,
-                    textAlign = TextAlign.Center
-                )
-            )
-            Button(
-                modifier = Modifier
-                    .width(193.dp)
-                    .height(54.dp),
-                onClick = onNavigate,
-                shape = RoundedCornerShape(14.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.onPrimary
-                )
-            ) {
-                Text(
-                    color = MaterialTheme.colorScheme.onSecondary,
-                    text = "Next"
-                )
-            }
-            StepIndicator(
-                viewModel.currentStep
-            )
-        }
-    }
+    BoardingBaseScreen(
+        headerText = "Our reputation is as solid as concrete.",
+        image = R.drawable.ellipse1,
+        onNavigate = onNavigate,
+        viewModel = viewModel
+    )
  }

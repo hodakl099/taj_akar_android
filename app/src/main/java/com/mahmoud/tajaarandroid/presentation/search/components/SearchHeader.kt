@@ -22,8 +22,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.mahmoud.tajaarandroid.R
+import com.mahmoud.tajaarandroid.ui.theme.ValentineRed
 import com.mahmoud.tajaarandroid.ui.theme.snowDrift
-import com.mahmoud.tajaarandroid.ui.theme.valentineRed
 import kotlinx.coroutines.launch
 
 @Composable
@@ -50,7 +50,7 @@ fun SearchHeader(
                 .clip(RoundedCornerShape(14.dp))
                 .background(
                     if (value.isNotEmpty())
-                      valentineRed.copy(0.1f)
+                      ValentineRed.copy(0.1f)
                     else
                        snowDrift
                 ),
