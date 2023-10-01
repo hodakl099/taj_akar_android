@@ -157,6 +157,6 @@ fun HomeGraph() {
 sealed class BottomNavItem(val route: String, @DrawableRes val icon: Int) {
     object Home : BottomNavItem(route = HOME,icon =  R.drawable.home)
     object Search : BottomNavItem(route = SEARCH,icon =  R.drawable.search)
-    object Saved : BottomNavItem(route = Route.SAVED,icon =  R.drawable.saved)
-    object Chat: BottomNavItem(route = Route.CHAT,icon =  R.drawable.messages)
+    object Saved : BottomNavItem(route = SAVED,icon =  R.drawable.saved)
+    object Chat: BottomNavItem(route = CHAT,icon =  R.drawable.messages)
 }
