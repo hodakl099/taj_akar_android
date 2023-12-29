@@ -1,5 +1,6 @@
 # Taj Akar App
 Overview
+
 Taj Akar is an innovative property rental mobile application, akin to Airbnb, designed to provide a seamless and interactive experience for users looking to rent properties. This app is developed using Jetpack Compose for a dynamic and intuitive user interface and Ktor for a robust and efficient backend web server.
 
 Features
