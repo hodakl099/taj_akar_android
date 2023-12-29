@@ -37,6 +37,13 @@ Ktor: For managing server-side operations, including database interactions and A
 Google Maps API: Integrated for map functionalities and property location services.
 
 Firebase: For user authentication and potential cloud data storage solutions.
+
+
+# API
+[Taj akar Ktor Server](https://github.com/hodakl099/RealState-ktor-server)
+
+
 ![tajjakarposter](https://github.com/hodakl099/taj_akar_android/assets/93213777/d541228d-4f75-4d7c-873c-05804b11a213)
 
-[Taj akar Ktor Server]([URL](https://github.com/hodakl099/RealState-ktor-server)https://github.com/hodakl099/RealState-ktor-server)
+
+
