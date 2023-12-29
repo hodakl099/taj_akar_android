@@ -5,8 +5,11 @@ Taj Akar is an innovative property rental mobile application, akin to Airbnb, de
 
 Features
 Property Browsing: Users can browse a wide range of properties, filter based on preferences, and view detailed property information.
-Booking System: A streamlined booking process, allowing users to reserve properties directly through the app.
-User Reviews and Ratings: Features for users to leave reviews and ratings for properties, enhancing trust and community engagement.
+
+Booking System: A streamlined booking process, allowing users to reserve properties directly through the app
+
+User Reviews and Ratings: Features for users to leave reviews and ratings for properties, enhancing trust and community engagement
+
 Interactive Maps: Integration of maps for easy location tracking and property searching.
 Architecture
 Frontend: Developed with Jetpack Compose, offering a modern approach to building native Android UIs with a focus on reactive and interactive design elements.
